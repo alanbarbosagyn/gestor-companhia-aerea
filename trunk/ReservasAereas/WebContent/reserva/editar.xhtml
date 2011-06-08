@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+	<title>Editar reserva</title>
+</h:head>
+
+<h:body>
+	<h1>Editar reserva</h1>
+	<h:panelGrid columns="2">
+
+		<h:outputLabel value="Data:" for="data" />
+		<h:inputText id="data" label="data" value="#{reserva.dataReserva}" required="true"/>
+		
+		<h:outputLabel value="Forma de pagamento:" for="formaPagamento" />
+		<h:inputText id="formaPagamento" label="formaPagamento" value="#{reserva.formaPagamento}" required="true"/>
+		
+		<h:outputLabel value="Número de parcelas" for="nParcelas" />
+		<h:inputText id="nParcelas" label="nParcelas" value="#{reserva.numParcelas}" required="true"/>
+		
+		<h:outputLabel value="Tipo:" for="tipo" />
+		<h:inputText id="tipo" label="tipo" value="#{reserva.tipo}" required="true"/>
+		
+		<h:outputLabel value="Valor total:" for="valorTotal" />
+		<h:inputText id="valorTotal" label="valorTotal" value="#{reserva.valorTotal}" required="true"/>
+		
+		<h:commandButton value="Cadastrar" action="#{reservaDAO.atualizar}"/>	
+		
+	</h:panelGrid>
+</h:body>
+</html>

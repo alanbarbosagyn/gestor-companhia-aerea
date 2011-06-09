@@ -14,13 +14,13 @@
 	<h1>Cadastro de reserva</h1>
 	<h:panelGrid columns="2">
 
-		<h:outputLabel value="Data:" for="data" />
+		<h:outputLabel value="Data da reserva:" for="data" />
 		<h:inputText id="data" label="data" value="#{reserva.dataReserva}" required="true"/>
 		
 		<h:outputLabel value="Forma de pagamento:" for="formaPagamento" />
 		<h:inputText id="formaPagamento" label="formaPagamento" value="#{reserva.formaPagamento}" required="true"/>
 		
-		<h:outputLabel value="Número de parcelas" for="nParcelas" />
+		<h:outputLabel value="Número de parcelas:" for="nParcelas" />
 		<h:inputText id="nParcelas" label="nParcelas" value="#{reserva.numParcelas}" required="true"/>
 		
 		<h:outputLabel value="Tipo:" for="tipo" />
@@ -28,6 +28,10 @@
 		
 		<h:outputLabel value="Valor total:" for="valorTotal" />
 		<h:inputText id="valorTotal" label="valorTotal" value="#{reserva.valorTotal}" required="true"/>
+		
+		<h2>Passageiros</h2>
+		
+		<!-- Permitir adição de dados de passageiros -->
 		
 		<h:commandButton value="Cadastrar" action="#{reservaDAO.gravar}"/>	
 		

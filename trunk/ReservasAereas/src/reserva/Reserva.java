@@ -1,6 +1,9 @@
 package reserva;
 
 import java.sql.Date;
+import java.util.List;
+
+import passageiro.Passageiro;
 
 public class Reserva {
 	private int codigo;
@@ -9,7 +12,14 @@ public class Reserva {
 	private int numParcelas;
 	private String formaPagamento;
 	private float valorTotal;
+	private List <Passageiro> passageiros;
 	
+	public List<Passageiro> getPassageiros() {
+		return passageiros;
+	}
+	public void setPassageiros(List<Passageiro> passageiros) {
+		this.passageiros = passageiros;
+	}
 	public int getCodigo() {
 		return codigo;
 	}

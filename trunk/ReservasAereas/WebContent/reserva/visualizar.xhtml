@@ -16,9 +16,22 @@
 
 		<h:outputText value="#{reserva.codigo}"/>
 		<h:outputText value="#{reserva.dataReserva}" />
+		<h:outputText value="#{reserva.tipo}" />
+		<!-- origem -->
+		<!-- destino -->
+		<!-- qtd de passageiros -->
+		<!-- FOR baseado na qtd de passageiros -->
+			<!-- nome do passageiro -->
+			<!-- numero do voo da ida -->
+			<!-- data/horario do voo da ida -->
+			<!-- assento na ida -->
+			<!-- numero do voo da volta -->
+			<!-- data/horario do voo da volta -->
+			<!-- assento na volta -->
+		<!-- /FOR -->
+		<h:outputText value="Cliente responsável pela reserva: #{cliente.nome}" />
 		<h:outputText value="#{reserva.formaPagamento}" />
 		<h:outputText value="#{reserva.numParcelas}" />
-		<h:outputText value="#{reserva.tipo}" />
 		<h:outputText value="#{reserva.valorTotal}" />
 		
 	</h:panelGrid>

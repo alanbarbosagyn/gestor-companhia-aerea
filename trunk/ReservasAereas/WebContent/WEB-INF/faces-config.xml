@@ -5,51 +5,51 @@
  <managed-bean>
   <managed-bean-name>cliente</managed-bean-name>
   <managed-bean-class>cliente.Cliente</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
+  <managed-bean-scope>request</managed-bean-scope>
  </managed-bean>
  <managed-bean>
   <managed-bean-name>clienteDAO</managed-bean-name>
   <managed-bean-class>cliente.ClienteDAO</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
+  <managed-bean-scope>request</managed-bean-scope>
  </managed-bean>
  <managed-bean>
   <managed-bean-name>aeroporto</managed-bean-name>
   <managed-bean-class>aeroporto.Aeroporto</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
+  <managed-bean-scope>request</managed-bean-scope>
  </managed-bean>
  <managed-bean>
   <managed-bean-name>voo</managed-bean-name>
   <managed-bean-class>voo.Voo</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
+  <managed-bean-scope>request</managed-bean-scope>
  </managed-bean>
  <managed-bean>
   <managed-bean-name>aeroportoDAO</managed-bean-name>
   <managed-bean-class>aeroporto.AeroportoDAO</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
+  <managed-bean-scope>request</managed-bean-scope>
  </managed-bean>
  <managed-bean>
   <managed-bean-name>vooDAO</managed-bean-name>
   <managed-bean-class>voo.VooDAO</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
+  <managed-bean-scope>request</managed-bean-scope>
  </managed-bean>
  <managed-bean>
   <managed-bean-name>companhiaAerea</managed-bean-name>
   <managed-bean-class>companhiaAerea.CompanhiaAerea</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
+  <managed-bean-scope>request</managed-bean-scope>
  </managed-bean>
  <managed-bean>
   <managed-bean-name>companhiaAereaDAO</managed-bean-name>
   <managed-bean-class>companhiaAerea.CompanhiaAereaDAO</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
+  <managed-bean-scope>request</managed-bean-scope>
  </managed-bean>
  <managed-bean>
   <managed-bean-name>reserva</managed-bean-name>
   <managed-bean-class>reserva.Reserva</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
+  <managed-bean-scope>request</managed-bean-scope>
  </managed-bean>
  <managed-bean>
   <managed-bean-name>reservaDAO</managed-bean-name>
   <managed-bean-class>reserva.ReservaDAO</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
+  <managed-bean-scope>request</managed-bean-scope>
  </managed-bean>
 </faces-config>

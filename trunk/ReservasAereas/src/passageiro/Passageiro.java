@@ -2,28 +2,32 @@ package passageiro;
 
 public class Passageiro {
 	private String nome;
-	private String numeroVooIda;
-	private String numeroVooVolta;
+	private String codReserva;
 	private String assentoIda;
 	private String assentoVolta;
 	
+	public Passageiro() {
+		
+	}
+	
+	public Passageiro(String nome, String codReserva, String assentoIda,
+			String assentoVolta) {
+		this.nome = nome;
+		this.codReserva = codReserva;
+		this.assentoIda = assentoIda;
+		this.assentoVolta = assentoVolta;
+	}
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getNumeroVooIda() {
-		return numeroVooIda;
+	public String getCodReserva() {
+		return codReserva;
 	}
-	public void setNumeroVooIda(String numeroVooIda) {
-		this.numeroVooIda = numeroVooIda;
-	}
-	public String getNumeroVooVolta() {
-		return numeroVooVolta;
-	}
-	public void setNumeroVooVolta(String numeroVooVolta) {
-		this.numeroVooVolta = numeroVooVolta;
+	public void setCodReserva(String codReserva) {
+		this.codReserva = codReserva;
 	}
 	public String getAssentoIda() {
 		return assentoIda;

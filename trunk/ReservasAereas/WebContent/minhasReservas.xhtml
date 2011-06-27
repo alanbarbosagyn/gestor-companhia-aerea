@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+
+<body>
+	<f:view>
+		<ui:include src="/header.xhtml" />
+	</f:view>
+	<div class="container_12">
+		<h1>Minhas reservas</h1>
+		<h:form>
+			<h:dataTable value="#{reservaBusiness.todasReservas}"
+				styleClass="tabela" rowClasses="odd,even" var="r">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Código" />
+					</f:facet>
+					<h:outputText value="#{r.codigo}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Tipo" />
+					</f:facet>
+					<h:outputText value="#{r.tipo}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Data" />
+					</f:facet>
+					<h:outputText value="#{r.dataReserva}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Parcelas" />
+					</f:facet>
+					<h:outputText value="#{r.numParcelas}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Passageiros" />
+					</f:facet>
+					<h:outputText value="#{r.numPassageiros}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Pagamento" />
+					</f:facet>
+					<h:outputText value="#{r.formaPagamento}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Valor" />
+					</f:facet>
+					<h:outputText value="#{r.valor}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Opções" />
+					</f:facet>
+					<h:form>
+						<h:commandLink styleClass="editar" value="editar"
+							action="#{reservaBusiness.editarReserva}" />
+						<h:commandLink styleClass="excluir"
+							value="excluir"
+							action="#{reservaBusiness.excluirReserva}" />
+					</h:form>
+				</h:column>
+			</h:dataTable>
+
+		</h:form>
+	</div>
+</body>
+</html>

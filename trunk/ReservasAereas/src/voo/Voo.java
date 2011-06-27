@@ -1,20 +1,24 @@
 package voo;
 
 public class Voo {
-	private int codigo;
+	private String codigo;
 	private int numAssentos;
-	private boolean segunda;
-	private boolean terca;
-	private boolean quarta;
-	private boolean quinta;
-	private boolean sexta;
-	private boolean sabado;
-	private boolean domingo;
+	private int numCPAerea;
 	
-	public int getCodigo() {
+	public Voo() {
+		
+	}
+	
+	public Voo(String codigo, int numAssentos, int numCPAerea) {
+		super();
+		this.codigo = codigo;
+		this.numAssentos = numAssentos;
+		this.numCPAerea = numCPAerea;
+	}
+	public String getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(int codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 	public int getNumAssentos() {
@@ -23,47 +27,11 @@ public class Voo {
 	public void setNumAssentos(int numAssentos) {
 		this.numAssentos = numAssentos;
 	}
-	public boolean isSegunda() {
-		return segunda;
+	public int getNumCPAerea() {
+		return numCPAerea;
 	}
-	public void setSegunda(boolean segunda) {
-		this.segunda = segunda;
-	}
-	public boolean isTerca() {
-		return terca;
-	}
-	public void setTerca(boolean terca) {
-		this.terca = terca;
-	}
-	public boolean isQuarta() {
-		return quarta;
-	}
-	public void setQuarta(boolean quarta) {
-		this.quarta = quarta;
-	}
-	public boolean isQuinta() {
-		return quinta;
-	}
-	public void setQuinta(boolean quinta) {
-		this.quinta = quinta;
-	}
-	public boolean isSexta() {
-		return sexta;
-	}
-	public void setSexta(boolean sexta) {
-		this.sexta = sexta;
-	}
-	public boolean isSabado() {
-		return sabado;
-	}
-	public void setSabado(boolean sabado) {
-		this.sabado = sabado;
-	}
-	public boolean isDomingo() {
-		return domingo;
-	}
-	public void setDomingo(boolean domingo) {
-		this.domingo = domingo;
+	public void setNumCPAerea(int numCPAere) {
+		this.numCPAerea = numCPAerea;
 	}
 
 }

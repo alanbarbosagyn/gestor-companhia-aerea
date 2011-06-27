@@ -1,20 +1,12 @@
 package aeroporto;
 
-import java.sql.Connection;
 import java.util.List;
-
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
-
-import conexao.Conexao;
-import conexao.RAereasDAOException;
+import apoio.ReservasDAOException;
 
 public interface AeroportoDAO {
 	
-	public String gravar();
-	public String atualizar();
-	public String excluir();
-	public List listarTodos();
-	public Aeroporto procurarAeroporto();
+	public Aeroporto procurar(String numero) throws ReservasDAOException;
+	public List listar() throws ReservasDAOException;
+	public List listarCidadesDestino(int num) throws ReservasDAOException;
 
 }

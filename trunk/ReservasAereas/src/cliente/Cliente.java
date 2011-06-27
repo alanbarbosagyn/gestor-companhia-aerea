@@ -1,20 +1,30 @@
 package cliente;
 
-import java.sql.Date;
-
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import java.util.Date;
 
 public class Cliente {
 	private String nome;
 	private String email;
-	private String login;
 	private String senha;
-	private String confirmaSenha;
-	private String numTelefone;
-	private String numCartaoCredito;
+	private String telefone;
+	private int nCartao;
 	private Date dataCriacaoConta;
 	
+	public Cliente() {
+		
+	}
+	
+	public Cliente(String nome, String email, String senha, String telefone,
+			int nCartao, Date dataCriacaoConta) {
+		
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+		this.telefone = telefone;
+		this.nCartao = nCartao;
+		this.dataCriacaoConta = dataCriacaoConta;
+		
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -27,35 +37,23 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getLogin() {
-		return login;
-	}
-	public void setLogin(String login) {
-		this.login = login;
-	}
 	public String getSenha() {
 		return senha;
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public String getConfirmaSenha() {
-		return confirmaSenha;
+	public String getTelefone() {
+		return telefone;
 	}
-	public void setConfirmaSenha(String confirmaSenha) {
-		this.confirmaSenha = confirmaSenha;
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
-	public String getNumTelefone() {
-		return numTelefone;
+	public int getnCartao() {
+		return nCartao;
 	}
-	public void setNumTelefone(String numTelefone) {
-		this.numTelefone = numTelefone;
-	}
-	public String getNumCartaoCredito() {
-		return numCartaoCredito;
-	}
-	public void setNumCartaoCredito(String numCartaoCredito) {
-		this.numCartaoCredito = numCartaoCredito;
+	public void setnCartao(int nCartao) {
+		this.nCartao = nCartao;
 	}
 	public Date getDataCriacaoConta() {
 		return dataCriacaoConta;
@@ -63,7 +61,6 @@ public class Cliente {
 	public void setDataCriacaoConta(Date dataCriacaoConta) {
 		this.dataCriacaoConta = dataCriacaoConta;
 	}
-	
 	
 
 }

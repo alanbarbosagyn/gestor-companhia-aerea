@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+	
+<ui:composition>
+	<h:head>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+	</h:head>
+	<h:form>
+		<div id="header">
+			<div class="container_12">
+				<div class="grid_4 logobox">
+					<h:link styleClass="logo" outcome="dashboard.jsf" value="Reservas Aéreas Online" />
+				</div>
+				<div id="user_bar" class="grid_6 prefix_2">
+					<span class="username">
+					<h:outputText value="#{reservaBusiness.cliente.nome}" />
+					</span> <span><h:commandLink action="#{reservaBusiness.logout}"
+							value="Logout" />
+					</span>
+				</div>
+			</div>
+		</div>
+		<div id="menu-wrapper">
+			<div id="menu" class="container_12">
+				<ul class="menu grid_12">
+					<li><h:link outcome="/voo.xhtml" value="Consultar vôos" /></li>
+					<li><h:commandLink action="#{reservaBusiness.fazerReserva}"
+							value="Fazer reservas" /></li>
+					<li><h:link outcome="/minhasReservas.xhtml" value="Minhas reservas" /></li>
+
+				</ul>
+			</div>
+		</div>
+	</h:form>
+</ui:composition>
+
+</html>

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13091173846900" configfile="/ReservasAereas/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="148" y="81" id="pf13091296940921" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf13091296940922" path="/login.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="dashboard.xhtml" x="358" y="143" id="pf13091296940923" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13091296940922" path="/dashboard.xhtml"/>
-  <links id="pf13091296940922" target="pf13091296940923" source="pf13091296940921"/>
-</pageflow:Pageflow>

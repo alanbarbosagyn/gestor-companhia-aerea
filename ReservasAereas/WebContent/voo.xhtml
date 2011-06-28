@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<body>
+	<f:view>
+		<ui:include src="/header.xhtml" />
+	</f:view>
+	<div class="container_12">
+		<h1>Escolha a cidade de origem</h1>
+		<h:form>
+			<h:selectOneMenu id="cidadeOrigem"
+				value="#{reservaBusiness.aer.cidade}">
+				<f:selectItem itemValue="" itemLabel="Cidade origem" />
+				<f:selectItems value="#{reservaBusiness.cidades}" />
+				
+			</h:selectOneMenu>
+			<h:commandButton action="#{reservaBusiness.listarDestinos}" value="Carregar destinos" />
+			
+			<h:selectOneMenu id="cidadeDestino" value="#{reservaBusiness.aer.destino}">
+				<f:selectItem itemValue="" itemLabel="Cidade destino" />
+				<f:selectItems value="#{reservaBusiness.destinobyOrigem}" />
+			</h:selectOneMenu>
+			<h2>Datas disponíveis!!!</h2>
+			
+		</h:form>
+	</div>
+</body>
+</html>

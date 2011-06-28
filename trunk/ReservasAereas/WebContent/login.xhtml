@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Gestor de companhia aérea</title>
+</h:head>
+<h:body>
+<h1><h:outputText value="Login" /></h1>
+
+<h:form>
+<h:panelGrid columns="3">
+
+<h:outputLabel value="Email:"/>
+<h:inputText id="email" value="#{reservaBusiness.cliente.email}" required="true" requiredMessage="Este campo é obrigatório!"/>
+<h:message styleClass="error" for="email"/>
+
+<h:outputLabel value="Senha:"/>
+<h:inputSecret id="senha" value="#{reservaBusiness.cliente.senha}" required="true" requiredMessage="Este campo é obrigatório!"/>
+<h:message styleClass="error" for="senha"/>
+
+<h:commandButton action="#{reservaBusiness.autenticaCliente}" value="Logar" />
+
+</h:panelGrid>
+</h:form>
+
+</h:body>
+</html>

@@ -170,19 +170,27 @@ public class ReservaBusiness {
 		return cidades;
 	}
 	
-	public List<SelectItem> getDestinobyOrigem() throws ReservasDAOException {
-		AeroportoDAO destino = new AeroportoDAOImpl();
-		List<Aeroporto> aeroporto = destino.listarCidadesDestino(this.aer.getNumero());
-		List<SelectItem> cidades = new ArrayList<SelectItem>(aeroporto.size());
-		for(Aeroporto a : aeroporto) {
-			cidades.add(new SelectItem(a.getNumero(), a.getCidade()));
-		}
-		
-		return cidades;
+	public String reload(){
+		return "reserva";
 	}
 	
+	public List<SelectItem> getDestinobyOrigem() throws ReservasDAOException {
+		AeroportoDAO destino = new AeroportoDAOImpl();
+		List<Aeroporto> aeroporto = destino.listarCidadesDestino(this.reserva.getCodAerpIda());
+		List<SelectItem> cidadesDestino = new ArrayList<SelectItem>(aeroporto.size());
+		for(Aeroporto a : aeroporto) {
+			cidadesDestino.add(new SelectItem(a.getNumero(), a.getCidade()));
+		}
+		return cidadesDestino;
+	}
+	
+	/*public String listarCidadesDestino() throws ReservasDAOException{
+		getDestinobyOrigem();
+		return "reserva";
+	}*/
+	
 	public String listarDestinos() throws ReservasDAOException {
-		return "voo";
+		return "reserva";
 	}
 	
 	public String fazerReserva() throws ReservasDAOException {

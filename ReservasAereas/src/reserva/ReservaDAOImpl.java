@@ -26,14 +26,6 @@ public class ReservaDAOImpl implements ReservaDAO {
 		}
 	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		SimpleDateFormat formatador = new SimpleDateFormat("HH:mm:ss");
-		java.util.Date data = new java.util.Date();
-
-		System.out.println(formatador.format(data));
-	}
-
 	@Override
 	public void gravar(Reserva reserva) throws ReservasDAOException {
 		PreparedStatement ps = null;

@@ -162,6 +162,12 @@ public class ReservaBusiness {
         return "dashboard";
     }
 	
+	public DataModel getVoosDisp() throws ReservasDAOException {
+		VooDAO vooDao = new VooDAOImpl();
+        model = new ListDataModel(vooDao.listarVoosDisp(this.reserva.getCodAerpIda(), this.reserva.getCodAerpVolta()));
+        return model;
+	}
+	
 	public DataModel getTodosVoos() throws ReservasDAOException {
 		VooDAO vooDao = new VooDAOImpl();
         model = new ListDataModel(vooDao.listarTodosVoos());

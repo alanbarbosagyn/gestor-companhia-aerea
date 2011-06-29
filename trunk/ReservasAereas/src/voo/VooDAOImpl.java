@@ -119,4 +119,40 @@ public class VooDAOImpl implements VooDAO {
         }
 	}
 
+	@Override
+	public List listarVoosDisp(int codOrigem, int codDestino)
+			throws ReservasDAOException {
+		PreparedStatement ps = null;
+        Connection conn1 = null;
+        ResultSet rs = null;
+
+        try {
+            List<VooCompleto> listVoo = new ArrayList<VooCompleto>();
+            String sql = "SELECT * FROM voo order by codigo";
+            conn1 = this.conn;
+            ps = conn1.prepareStatement(sql);
+            ps.setInt(1, codOrigem);
+            ps.setInt(2, codDestino);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                String codigo = rs.getString("codigo");
+                String companhia = rs.getString("nome");
+                Date data = rs.getDate("data");
+                String origem = rs.getString("origem");
+                String destino = rs.getString("destino");
+                String horaSaida = rs.getString("horasaida");
+                String horaChegada = rs.getString("horachegada");
+                Double valor = rs.getDouble("valor");
+
+				listVoo.add(new VooCompleto(codigo, companhia, data, origem, destino, horaSaida, horaChegada, valor));
+            }
+
+            return listVoo;
+        } catch (SQLException e) {
+            throw new ReservasDAOException("Erro ao procurar Usuarios" + e);
+        } finally {
+            Conexao.closeConnection(conn1, ps, rs);
+        }
+	}
+
 }

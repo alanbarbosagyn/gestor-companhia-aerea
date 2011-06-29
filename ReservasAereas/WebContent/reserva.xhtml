@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<body>
+	<f:view>
+		<ui:include src="/header.xhtml" />
+	</f:view>
+	<div class="container_12">
+		<br />
+		<h:form>
+			<div class="voo">
+				<div class="grid_4">
+					<div class="box">
+						<h5>Tipo de passagem</h5>
+						<h:selectOneRadio value="#{reservaBusiness.reserva.tipo}"
+							styleClass="tipoPassagem">
+							<f:selectItem itemValue="ida" itemLabel="só ida" />
+							<f:selectItem itemValue="idaevolta" itemLabel="ida e volta" />
+						</h:selectOneRadio>
+
+						<h:selectOneMenu style="margin-top:-10px;"
+							value="#{reservaBusiness.reserva.numPassageiros}">
+							<f:selectItem itemValue="1" itemLabel="1 Passageiro" />
+							<f:selectItem itemValue="2" itemLabel="2 Passageiros" />
+							<f:selectItem itemValue="3" itemLabel="3 Passageiros" />
+							<f:selectItem itemValue="4" itemLabel="4 Passageiros" />
+							<f:selectItem itemValue="5" itemLabel="5 Passageiros" />
+						</h:selectOneMenu>
+					</div>
+				</div>
+				<div class="grid_3">
+					<div class="box">
+						<h5>Origem</h5>
+						<h:selectOneMenu id="cidadeOrigem"
+							value="#{reservaBusiness.aer.cidade}">
+							<f:selectItem itemValue=""
+								itemLabel="Selecionar cidade de origem" />
+							<f:selectItems value="#{reservaBusiness.cidades}" />
+						</h:selectOneMenu>
+					</div>
+				</div>
+				<div class="grid_2">
+					<div class="box">
+						<h5>Ação</h5>
+						<h:commandButton action="#{reservaBusiness.listarDestinos}"
+							value="Carregar destinos" />
+					</div>
+				</div>
+				<div class="grid_3">
+					<div class="box">
+						<h5>Destino</h5>
+						<h:selectOneMenu id="cidadeDestino"
+							value="#{reservaBusiness.aer.destino}">
+							<f:selectItem itemValue=""
+								itemLabel="Selecionar cidade de destino" />
+							<f:selectItems value="#{reservaBusiness.destinobyOrigem}" />
+						</h:selectOneMenu>
+					</div>
+				</div>
+				<div class="grid_12">
+					<h:commandButton styleClass="botao-formulario acao"
+						action="#{reservaBusiness.listarDestinos}"
+						value="Listar vôos disponíveis" />
+				</div>
+				<div class="grid_12 vooDisp">
+					<h:dataTable value="#{reservaBusiness.todasReservas}"
+						styleClass="tabela" rowClasses="odd,even" var="r">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Código" />
+							</f:facet>
+							<h:outputText value="#{r.codigo}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Data" />
+							</f:facet>
+							<h:outputText value="#{r.tipo}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Origem" />
+							</f:facet>
+							<h:outputText value="#{r.dataReserva}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Hora de saída" />
+							</f:facet>
+							<h:outputText value="#{r.numParcelas}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Destino" />
+							</f:facet>
+							<h:outputText value="#{r.numPassageiros}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Hora de chegada" />
+							</f:facet>
+							<h:outputText value="#{r.formaPagamento}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Valor" />
+							</f:facet>
+							<h:outputText value="#{r.valor}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Opções" />
+							</f:facet>
+							<h:form>
+								<h:commandLink styleClass="reservar" value="reservar"
+									action="#{reservaBusiness.fazerReserva}" />
+							</h:form>
+						</h:column>
+					</h:dataTable>
+				</div>
+			</div>
+		</h:form>
+	</div>
+</body>
+</html>

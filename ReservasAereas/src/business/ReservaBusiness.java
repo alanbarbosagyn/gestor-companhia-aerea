@@ -9,6 +9,8 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
+import passageiro.Passageiro;
+
 import reserva.Reserva;
 import reserva.ReservaDAO;
 import reserva.ReservaDAOImpl;
@@ -27,8 +29,10 @@ import apoio.ReservasDAOException;
 
 public class ReservaBusiness {
 	private Cliente cliente = new Cliente();
+	private Passageiro passageiro = new Passageiro();
 	private Voo voo = new Voo();
 	private Aeroporto aer = new Aeroporto();
+	private Aeroporto aer2 = new Aeroporto();
 	private List<SelectItem> aeroportos = new ArrayList<SelectItem>();
 	private Escala escala = new Escala();
 	private Reserva reserva = new Reserva();
@@ -65,6 +69,22 @@ public class ReservaBusiness {
 
 	public void setAer(Aeroporto aer) {
 		this.aer = aer;
+	}
+
+	public Passageiro getPassageiro() {
+		return passageiro;
+	}
+
+	public void setPassageiro(Passageiro passageiro) {
+		this.passageiro = passageiro;
+	}
+
+	public Aeroporto getAer2() {
+		return aer2;
+	}
+
+	public void setAer2(Aeroporto aer2) {
+		this.aer2 = aer2;
 	}
 
 	public Voo getVoo() {

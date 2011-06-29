@@ -109,3 +109,124 @@ table tr td {
 	text-decoration: none;
 	color: #C00;
 }
+
+.reservar {
+	text-decoration: none;
+	color: green;
+}
+
+.voo {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.box {
+	background-color: #007FBF;
+	padding-top: 20px;
+	min-height: 140px;
+	color: white;
+	text-align: center;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+}
+
+.box2interno {
+	padding-left: 20px;
+}
+
+.box2 {
+	background-color: #007FBF;
+	padding-top: 20px;
+	min-height: 140px;
+	color: white;
+	text-align: left;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+}
+
+.acao {
+	margin-top: 30px;
+	background-color: green;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	min-height: 50px;
+	min-width: 100%;
+	text-align: center;
+}
+
+.botao-formulario {
+	font: 18px 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif;
+	background: green;
+	height: 100%;
+	color: #FFF;
+	padding: 10px;
+	font-weight: bold;
+	border: 0;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+}
+
+.botao-formulario:hover {
+	background: #090;
+}
+
+.botao-link {
+        margin-top: 20px;
+}
+
+a.botao-formulario {
+	font: 18px 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif;
+	background: green;
+	height: 100%;
+	color: #FFF;
+	padding: 10px;
+	font-weight: bold;
+	border: 0;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+    text-decoration: none;
+}
+
+a.botao-formulario:hover {
+	background: #090;
+}
+
+table.tipoPassagem {
+	margin-left:70px;
+}
+
+.vooDisp {
+	margin-top: 40px;
+}
+
+.cadRes {
+	text-align: left;
+	color: #FFF;
+}
+
+.resCon {
+	margin-bottom: 30px;
+}
+
+.tituloRes {
+	text-align: center;
+}
+
+.tituloRes2 {
+	margin-top: 30px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.cobranca {
+	background-color: orange;
+}
+
+.boxCadPas {
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+div.box.boxCadPas h6 {
+	margin-bottom: 0px;
+}

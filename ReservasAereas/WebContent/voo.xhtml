@@ -11,24 +11,69 @@
 	<f:view>
 		<ui:include src="/header.xhtml" />
 	</f:view>
-	<div class="container_12">
-		<h1>Escolha a cidade de origem</h1>
-		<h:form>
-			<h:selectOneMenu id="cidadeOrigem"
-				value="#{reservaBusiness.aer.cidade}">
-				<f:selectItem itemValue="" itemLabel="Cidade origem" />
-				<f:selectItems value="#{reservaBusiness.cidades}" />
-				
-			</h:selectOneMenu>
-			<h:commandButton action="#{reservaBusiness.listarDestinos}" value="Carregar destinos" />
-			
-			<h:selectOneMenu id="cidadeDestino" value="#{reservaBusiness.aer.destino}">
-				<f:selectItem itemValue="" itemLabel="Cidade destino" />
-				<f:selectItems value="#{reservaBusiness.destinobyOrigem}" />
-			</h:selectOneMenu>
-			<h2>Datas disponíveis!!!</h2>
-			
-		</h:form>
-	</div>
+		<div class="container_12 vooDisp">
+		<h4>Lista de vôos disponíveis</h4>
+			<h:dataTable value=""
+				styleClass="tabela" rowClasses="odd,even" var="r">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Vôo" />
+					</f:facet>
+					<h:outputText value="" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Companhia" />
+					</f:facet>
+					<h:outputText value="" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Data" />
+					</f:facet>
+					<h:outputText value="" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Origem" />
+					</f:facet>
+					<h:outputText value="" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Hora de saída" />
+					</f:facet>
+					<h:outputText value="" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Destino" />
+					</f:facet>
+					<h:outputText value="" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Hora de chegada" />
+					</f:facet>
+					<h:outputText value="" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Valor" />
+					</f:facet>
+					<h:outputText value="" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Opções" />
+					</f:facet>
+					<h:form>
+						<h:commandLink styleClass="reservar" value="reservar"
+							action="#{reservaBusiness.fazerReserva}" />
+					</h:form>
+				</h:column>
+			</h:dataTable>
+		</div>
+	
 </body>
 </html>

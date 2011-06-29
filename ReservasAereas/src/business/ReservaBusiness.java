@@ -10,6 +10,8 @@ import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
 import passageiro.Passageiro;
+import passageiro.PassageiroDAO;
+import passageiro.PassageiroDAOImpl;
 
 import reserva.Reserva;
 import reserva.ReservaDAO;
@@ -161,6 +163,16 @@ public class ReservaBusiness {
         setLogado(true);
         return "dashboard";
     }
+	
+	public String cadastrarReserva() throws ReservasDAOException {
+		ReservaDAO interfaceReserva = new ReservaDAOImpl();
+		interfaceReserva.gravar(reserva);
+		PassageiroDAO interfacePassageiro = new PassageiroDAOImpl();
+		for (int i=0; i<passageiros.size(); i++) {
+			
+		}
+		return "minhasReservas";
+	}
 	
 	public DataModel getVoosDisp() throws ReservasDAOException {
 		VooDAO vooDao = new VooDAOImpl();

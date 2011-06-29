@@ -9,7 +9,7 @@ public class Reserva {
 	private String codigo;
 	private String tipo;
 	private Date dataReserva;
-	private Date horaReserva;
+	private String horaReserva;
 	private int numParcelas;
 	private int numPassageiros;
 	private String formaPagamento;
@@ -25,7 +25,7 @@ public class Reserva {
 	}
 	
 	public Reserva(String codigo, String tipo, Date dataReserva,
-			Date horaReserva, int numParcelas, int numPassageiros,
+			String horaReserva, int numParcelas, int numPassageiros,
 			String formaPagamento, double valor, String codVooIda,
 			String codVooVolta, int codAerpIda, int codAerpVolta,
 			String clienteEmail) {
@@ -62,10 +62,10 @@ public class Reserva {
 	public void setDataReserva(Date dataReserva) {
 		this.dataReserva = dataReserva;
 	}
-	public Date getHoraReserva() {
+	public String getHoraReserva() {
 		return horaReserva;
 	}
-	public void setHoraReserva(Date horaReserva) {
+	public void setHoraReserva(String horaReserva) {
 		this.horaReserva = horaReserva;
 	}
 	public int getNumParcelas() {

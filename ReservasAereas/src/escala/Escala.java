@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class Escala {
 	private String codVoo;
-	private Date horaSaida;
-	private Date horaChegada;
+	private String horaSaida;
+	private String horaChegada;
 	private double valor;
 	private int numAerpOrigem;
 	private int numAerpDestino;
@@ -13,7 +13,7 @@ public class Escala {
 	public Escala() {
 		
 	}
-	public Escala(String codVoo, Date horaSaida, Date horaChegada,
+	public Escala(String codVoo, String horaSaida, String horaChegada,
 			double valor, int numAerpOrigem, int numAerpDestino) {
 		super();
 		this.codVoo = codVoo;
@@ -29,16 +29,16 @@ public class Escala {
 	public void setCodVoo(String codVoo) {
 		this.codVoo = codVoo;
 	}
-	public Date getHoraSaida() {
+	public String getHoraSaida() {
 		return horaSaida;
 	}
-	public void setHoraSaida(Date horaSaida) {
+	public void setHoraSaida(String horaSaida) {
 		this.horaSaida = horaSaida;
 	}
-	public Date getHoraChegada() {
+	public String getHoraChegada() {
 		return horaChegada;
 	}
-	public void setHoraChegada(Date horaChegada) {
+	public void setHoraChegada(String horaChegada) {
 		this.horaChegada = horaChegada;
 	}
 	public double getValor() {

@@ -7,5 +7,6 @@ public interface VooDAO {
 	
 	public Voo procurar(String codigo) throws ReservasDAOException;
 	public List listar() throws ReservasDAOException;
+	public List listarTodosVoos() throws ReservasDAOException;
 
 }

@@ -49,8 +49,8 @@ public class EscalaDAOImpl implements EscalaDAO {
                 throw new ReservasDAOException("Erro ao procurar escala!");
             }
             escala.setCodVoo(codVoo);
-            escala.setHoraSaida(rs.getDate("horasaida"));
-            escala.setHoraChegada(rs.getDate("horachegada"));
+            escala.setHoraSaida(rs.getString("horasaida"));
+            escala.setHoraChegada(rs.getString("horachegada"));
             escala.setValor(rs.getDouble("valor"));
             escala.setNumAerpOrigem(rs.getInt("num_aerptorigem"));
             escala.setNumAerpDestino(rs.getInt("num_aerptdestino"));
@@ -76,8 +76,8 @@ public class EscalaDAOImpl implements EscalaDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 String codVoo = rs.getString("cod_voo");
-                Date horaSaida = rs.getDate("horasaida");
-                Date horaChegada = rs.getDate("horachegada");
+                String horaSaida = rs.getString("horasaida");
+                String horaChegada = rs.getString("horachegada");
                 double valor = rs.getDouble("valor");
                 int numAerpOrigem = rs.getInt("num_aerptorigem");
                 int numAerpDestino = rs.getInt("num_aerptdestino");

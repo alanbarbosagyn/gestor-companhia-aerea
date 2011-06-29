@@ -13,55 +13,55 @@
 	</f:view>
 		<div class="container_12 vooDisp">
 		<h4>Lista de vôos disponíveis</h4>
-			<h:dataTable value=""
-				styleClass="tabela" rowClasses="odd,even" var="r">
+			<h:dataTable value="#{reservaBusiness.todosVoos}"
+				styleClass="tabela" rowClasses="odd,even" var="v">
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Vôo" />
 					</f:facet>
-					<h:outputText value="" />
+					<h:outputText value="#{v.codigo}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Companhia" />
 					</f:facet>
-					<h:outputText value="" />
+					<h:outputText value="#{v.companhia}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Data" />
 					</f:facet>
-					<h:outputText value="" />
+					<h:outputText value="#{v.data}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Origem" />
 					</f:facet>
-					<h:outputText value="" />
+					<h:outputText value="#{v.origem}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Hora de saída" />
 					</f:facet>
-					<h:outputText value="" />
+					<h:outputText value="#{v.horaSaida}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Destino" />
 					</f:facet>
-					<h:outputText value="" />
+					<h:outputText value="#{v.destino}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Hora de chegada" />
 					</f:facet>
-					<h:outputText value="" />
+					<h:outputText value="#{v.horaChegada}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Valor" />
 					</f:facet>
-					<h:outputText value="" />
+					<h:outputText value="#{v.valor}" />
 				</h:column>
 				<h:column>
 					<f:facet name="header">

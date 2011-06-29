@@ -40,6 +40,11 @@
 		<managed-bean-class>aeroporto.Aeroporto</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>vooCompleto</managed-bean-name>
+		<managed-bean-class>voo.VooCompleto</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 	<navigation-rule>
 		<display-name>login.xhtml</display-name>
 		<from-view-id>/login.xhtml</from-view-id>

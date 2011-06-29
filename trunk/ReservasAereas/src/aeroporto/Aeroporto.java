@@ -11,7 +11,6 @@ public class Aeroporto {
 	private String nome;
 	private String pais;
 	private String cidade;
-	private String destino;
 	
 	public Aeroporto() {
 		
@@ -51,12 +50,6 @@ public class Aeroporto {
 	}
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
-	}
-	public String getDestino() {
-		return destino;
-	}
-	public void setDestino(String destino) {
-		this.destino = destino;
 	}
 
 }

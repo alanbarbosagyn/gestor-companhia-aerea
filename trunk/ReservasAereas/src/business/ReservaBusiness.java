@@ -15,6 +15,7 @@ import reserva.Reserva;
 import reserva.ReservaDAO;
 import reserva.ReservaDAOImpl;
 import voo.Voo;
+import voo.VooCompleto;
 import voo.VooDAO;
 import voo.VooDAOImpl;
 
@@ -31,6 +32,7 @@ public class ReservaBusiness {
 	private Cliente cliente = new Cliente();
 	private Passageiro passageiro = new Passageiro();
 	private Voo voo = new Voo();
+	private VooCompleto vooCompleto = new VooCompleto();
 	private Aeroporto aer = new Aeroporto();
 	private Aeroporto aer2 = new Aeroporto();
 	private List<SelectItem> aeroportos = new ArrayList<SelectItem>();
@@ -38,6 +40,14 @@ public class ReservaBusiness {
 	private Reserva reserva = new Reserva();
 	private boolean logado = false;
 	private DataModel model;
+
+	public VooCompleto getVooCompleto() {
+		return vooCompleto;
+	}
+
+	public void setVooCompleto(VooCompleto vooCompleto) {
+		this.vooCompleto = vooCompleto;
+	}
 
 	public Reserva getReserva() {
 		return reserva;
@@ -154,7 +164,7 @@ public class ReservaBusiness {
 	
 	public DataModel getTodosVoos() throws ReservasDAOException {
 		VooDAO vooDao = new VooDAOImpl();
-        model = new ListDataModel(vooDao.listar());
+        model = new ListDataModel(vooDao.listarTodosVoos());
         return model;
 	}
 	
@@ -183,11 +193,6 @@ public class ReservaBusiness {
 		}
 		return cidadesDestino;
 	}
-	
-	/*public String listarCidadesDestino() throws ReservasDAOException{
-		getDestinobyOrigem();
-		return "reserva";
-	}*/
 	
 	public String listarDestinos() throws ReservasDAOException {
 		return "reserva";

@@ -30,7 +30,7 @@ import apoio.ReservasDAOException;
 
 public class ReservaBusiness {
 	private Cliente cliente = new Cliente();
-	private Passageiro passageiro = new Passageiro();
+	private List<Passageiro> passageiros = new ArrayList();
 	private Voo voo = new Voo();
 	private VooCompleto vooCompleto = new VooCompleto();
 	private Aeroporto aer = new Aeroporto();
@@ -81,12 +81,12 @@ public class ReservaBusiness {
 		this.aer = aer;
 	}
 
-	public Passageiro getPassageiro() {
-		return passageiro;
+	public List<Passageiro> getPassageiros() {
+		return passageiros;
 	}
 
-	public void setPassageiro(Passageiro passageiro) {
-		this.passageiro = passageiro;
+	public void setPassageiros(List<Passageiro> passageiros) {
+		this.passageiros = passageiros;
 	}
 
 	public Aeroporto getAer2() {
@@ -205,7 +205,10 @@ public class ReservaBusiness {
 	}
 	
 	public String fazerReserva() throws ReservasDAOException {
-		
+		for(int i = 0; i < this.reserva.getNumPassageiros(); i++){
+			this.passageiros.add(new Passageiro());
+		}
+	
 		return "reserva";
 	}
 	

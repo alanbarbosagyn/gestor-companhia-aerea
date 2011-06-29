@@ -64,116 +64,29 @@
 			<div class="grid_12 tituloRes2">
 				<h5>Insira os dados dos passageiros</h5>
 			</div>
-			<div>
-				<div class="grid_3">
-					<div class="box boxCadPas">
-						<h5>Passageiro 1</h5>
-						<h:panelGrid columns="2">
-							<h:outputLabel value="Nome" />
-							<h:inputText value="#{reservaBusiness.passageiro.nome}" />
-						</h:panelGrid>
-						<h6>
-							<h:outputText value="Assentos" />
-						</h6>
-						<h:panelGrid columns="4">
-							<h:outputLabel value="ida" />
-							<h:inputText size="5"
-								value="#{reservaBusiness.passageiro.assentoIda}" />
-							<h:outputLabel value="volta" />
-							<h:inputText size="5"
-								value="#{reservaBusiness.passageiro.assentoVolta}" />
-						</h:panelGrid>
+			<ui:repeat var="#{reservaBusiness.passageiros}" value="passageiro">
+				<div>
+					<div class="grid_3">
+						<div class="box boxCadPas">
+							<h5>Passageiro</h5>
+							<h:panelGrid columns="2">
+								<h:outputLabel value="Nome" />
+								<h:inputText value="#{passageiro.nome}" />
+							</h:panelGrid>
+							<h6>
+								<h:outputText value="Assentos" />
+							</h6>
+							<h:panelGrid columns="4">
+								<h:outputLabel value="ida" />
+								<h:inputText size="5" value="#{passageiro.assentoIda}" />
+								<h:outputLabel value="volta" rendered="" />
+								<h:inputText size="5" value="#{passageiro.assentoVolta}" />
+							</h:panelGrid>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div>
-				<div class="grid_3">
-					<div class="box boxCadPas">
-						<h5>Passageiro 1</h5>
-						<h:panelGrid columns="2">
-							<h:outputLabel value="Nome" />
-							<h:inputText value="#{reservaBusiness.passageiro.nome}" />
-						</h:panelGrid>
-						<h6>
-							<h:outputText value="Assentos" />
-						</h6>
-						<h:panelGrid columns="4">
-							<h:outputLabel value="ida" />
-							<h:inputText size="5"
-								value="#{reservaBusiness.passageiro.assentoIda}" />
-							<h:outputLabel value="volta" />
-							<h:inputText size="5"
-								value="#{reservaBusiness.passageiro.assentoVolta}" />
-						</h:panelGrid>
-					</div>
-				</div>
-			</div>
-			<div>
-				<div class="grid_3">
-					<div class="box boxCadPas">
-						<h5>Passageiro 1</h5>
-						<h:panelGrid columns="2">
-							<h:outputLabel value="Nome" />
-							<h:inputText value="#{reservaBusiness.passageiro.nome}" />
-						</h:panelGrid>
-						<h6>
-							<h:outputText value="Assentos" />
-						</h6>
-						<h:panelGrid columns="4">
-							<h:outputLabel value="ida" />
-							<h:inputText size="5"
-								value="#{reservaBusiness.passageiro.assentoIda}" />
-							<h:outputLabel value="volta" />
-							<h:inputText size="5"
-								value="#{reservaBusiness.passageiro.assentoVolta}" />
-						</h:panelGrid>
-					</div>
-				</div>
-			</div>
-			<div>
-				<div class="grid_3">
-					<div class="box boxCadPas">
-						<h5>Passageiro 1</h5>
-						<h:panelGrid columns="2">
-							<h:outputLabel value="Nome" />
-							<h:inputText value="#{reservaBusiness.passageiro.nome}" />
-						</h:panelGrid>
-						<h6>
-							<h:outputText value="Assentos" />
-						</h6>
-						<h:panelGrid columns="4">
-							<h:outputLabel value="ida" />
-							<h:inputText size="5"
-								value="#{reservaBusiness.passageiro.assentoIda}" />
-							<h:outputLabel value="volta" />
-							<h:inputText size="5"
-								value="#{reservaBusiness.passageiro.assentoVolta}" />
-						</h:panelGrid>
-					</div>
-				</div>
-			</div>
-			<div>
-				<div class="grid_3">
-					<div class="box boxCadPas">
-						<h5>Passageiro 1</h5>
-						<h:panelGrid columns="2">
-							<h:outputLabel value="Nome" />
-							<h:inputText value="#{reservaBusiness.passageiro.nome}" />
-						</h:panelGrid>
-						<h6>
-							<h:outputText value="Assentos" />
-						</h6>
-						<h:panelGrid columns="4">
-							<h:outputLabel value="ida" />
-							<h:inputText size="5"
-								value="#{reservaBusiness.passageiro.assentoIda}" />
-							<h:outputLabel value="volta" />
-							<h:inputText size="5"
-								value="#{reservaBusiness.passageiro.assentoVolta}" />
-						</h:panelGrid>
-					</div>
-				</div>
-			</div>
+			</ui:repeat>
+			
 			<div class="grid_12 resCon">
 				<h:commandButton styleClass="botao-formulario acao"
 					action="#{reservaBusiness.listarDestinos}" value="Concluir reserva" />

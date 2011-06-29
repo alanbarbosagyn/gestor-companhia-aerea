@@ -169,7 +169,7 @@ public class ReservaBusiness {
 		interfaceReserva.gravar(reserva);
 		PassageiroDAO interfacePassageiro = new PassageiroDAOImpl();
 		for (int i=0; i<passageiros.size(); i++) {
-			
+			interfacePassageiro.gravar(passageiros.get(i));
 		}
 		return "minhasReservas";
 	}

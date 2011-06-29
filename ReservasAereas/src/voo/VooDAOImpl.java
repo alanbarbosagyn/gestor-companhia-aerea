@@ -103,14 +103,14 @@ public class VooDAOImpl implements VooDAO {
 			ps = conn1.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				String codigo = rs.getString("v.codigo");
-				String companhia = rs.getString("comp.nome");
-				Date data = rs.getDate("d.data");
-				String origem = rs.getString("a1.cidade");
-				String destino = rs.getString("a2.cidade");
-				String horaSaida = rs.getString("e1.horaSaida");
-				String horaChegada = rs.getString("e2.horaChegada");
-				Double valor = rs.getDouble("e2.preco");
+				String codigo = rs.getString("codigo");
+				String companhia = rs.getString("nome");
+				Date data = rs.getDate("data");
+				String origem = rs.getString("origem");
+				String destino = rs.getString("destino");
+				String horaSaida = rs.getString("horasaida");
+				String horaChegada = rs.getString("horachegada");
+				Double valor = rs.getDouble("preco");
 
 				listVoo.add(new VooCompleto(codigo, companhia, data, origem,
 						destino, horaSaida, horaChegada, valor));

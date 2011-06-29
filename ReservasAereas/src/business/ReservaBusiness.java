@@ -220,7 +220,11 @@ public class ReservaBusiness {
 		for(int i = 0; i < this.reserva.getNumPassageiros(); i++){
 			this.passageiros.add(new Passageiro());
 		}
+		return "cadastroReserva";
+	}
 	
+	public String reservar() throws ReservasDAOException {
+		
 		return "reserva";
 	}
 	

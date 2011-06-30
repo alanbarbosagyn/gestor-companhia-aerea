@@ -225,10 +225,8 @@ public class ReservaBusiness {
 	}
 	
 	public String fazerReserva() throws ReservasDAOException {
-		for(int i = 0; i < this.reserva.getNumPassageiros(); i++){
-			this.passageiros.add(new Passageiro());
-		}
-		return "cadastroReserva";
+		this.setReserva(new Reserva());
+		return "reserva";
 	}
 	
 	public String teste() throws ReservasDAOException {
@@ -240,14 +238,14 @@ public class ReservaBusiness {
 	}
 	
 	
-	/*public String reservar() throws ReservasDAOException {
+	public String reservar() throws ReservasDAOException {
 		getVooCompletoManipulacao();
         setVooCompleto(vooCompleto);
         for(int i = 0; i < this.reserva.getNumPassageiros(); i++){
 			this.passageiros.add(new Passageiro());
 		}
 		return "cadastroReserva";
-	}*/
+	}
 	
 	public DataModel getDetalhesVoo() throws ReservasDAOException {
 		VooDAO vooDao = new VooDAOImpl();

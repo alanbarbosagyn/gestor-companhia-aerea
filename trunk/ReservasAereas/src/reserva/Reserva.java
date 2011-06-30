@@ -3,6 +3,8 @@ package reserva;
 import java.util.Date;
 import java.util.List;
 
+import apoio.ReservasDAOException;
+
 import passageiro.Passageiro;
 
 public class Reserva {
@@ -177,5 +179,15 @@ public class Reserva {
 	public void setClienteEmail(String clienteEmail) {
 		this.clienteEmail = clienteEmail;
 	}
-
+	
+	public void obtemCodigoGerado(){
+		try {
+			ReservaDAO reservaDao = new ReservaDAOImpl();
+			this.setCodigo(reservaDao.geraCodigoReserva());
+		} catch (ReservasDAOException e) {
+			//System.out.println("XXXXXXXXXXXXXXX  Execeção  XXXXXXXXXXXXX");
+		}
+		
+	}
+		
 }

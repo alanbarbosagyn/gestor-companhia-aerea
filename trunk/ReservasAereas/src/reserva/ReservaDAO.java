@@ -13,5 +13,5 @@ public interface ReservaDAO {
 	public Reserva procurar(String codigo) throws ReservasDAOException;
 	// Lista todas as reservas do cliente pelo email
 	public List listar(String email) throws ReservasDAOException;
-
+	String geraCodigoReserva() throws ReservasDAOException;
 }

@@ -233,8 +233,7 @@ public class ReservaBusiness {
 	}
 
 	public void parseVooCompletoToReserva() throws ReservasDAOException {
-		String codReserva = "BD112";
-		reserva.setCodigo(codReserva);
+		reserva.obtemCodigoGerado();
 		this.reserva.setValor(this.vooCompleto.getValor()
 				* this.reserva.getNumPassageiros());
 		this.reserva.setCodVooIda(this.vooCompleto.getCodigo());

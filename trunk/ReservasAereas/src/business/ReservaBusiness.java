@@ -131,6 +131,14 @@ public class ReservaBusiness {
 		this.logado = logado;
 	}
 	
+	public void getReservaManipulacao() {
+        setReserva((Reserva) model.getRowData());
+    }
+	
+	public void getVooCompletoManipulacao() {
+        setVooCompleto((VooCompleto) model.getRowData());
+    }
+	
 	public String autenticaCliente() throws ReservasDAOException {
         ClienteDAO interfaceCliente = new ClienteDAOImpl();
         String retorno;
@@ -224,8 +232,12 @@ public class ReservaBusiness {
 	}
 	
 	public String reservar() throws ReservasDAOException {
-		
-		return "reserva";
+		getVooCompletoManipulacao();
+        setVooCompleto(vooCompleto);
+        for(int i = 0; i < this.reserva.getNumPassageiros(); i++){
+			this.passageiros.add(new Passageiro());
+		}
+		return "cadastroReserva";
 	}
 	
 	public DataModel getTodasReservas() throws ReservasDAOException {
@@ -233,10 +245,6 @@ public class ReservaBusiness {
         model = new ListDataModel(reservaDao.listar(cliente.getEmail()));
         return model;
 	}
-	
-	public void getReservaManipulacao() {
-        setReserva((Reserva) model.getRowData());
-    }
 	
 	public String editarReserva() throws ReservasDAOException {
         getReservaManipulacao();

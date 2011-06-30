@@ -20,34 +20,40 @@
 					<div class="box2interno">
 						<h5 class="tituloRes">Dados da passagem</h5>
 						<div class="grid_4 alpha omega">
-							<h:outputText
-								value="Data de embarque: #{reservaBusiness.vooCompleto.data}">
+							<h:outputText value="Data de embarque: " />
+							<h:outputText styleClass="bold"
+								value="#{reservaBusiness.vooCompleto.data}">
 								<f:convertDateTime dateStyle="short" type="date"
 									pattern="dd/MM/yyyy" />
 							</h:outputText>
 							<br />
-							<h:outputText
-								value="Código do vôo: #{reservaBusiness.reserva.codVooIda}" />
+							<h:outputText value="Código do vôo: " />
+							<h:outputText styleClass="bold"
+								value="#{reservaBusiness.reserva.codVooIda}" />
 							<br />
 							<h:outputText
-								value="Campanhia: #{reservaBusiness.reserva.companhia}" />
+								value="Campanhia: " />
+							<h:outputText styleClass="bold" value="#{reservaBusiness.reserva.companhia}" />
 							<br />
 							<h:outputText
-								value="Qtde de passageiros: #{reservaBusiness.reserva.numPassageiros}" />
+								value="Qtde de passageiros: " />
+								<h:outputText styleClass="bold" value="#{reservaBusiness.reserva.numPassageiros}" />
 							<br />
 						</div>
 						<div class="grid_3 alpha omega">
-							<h:outputText
-								value="Origem: #{reservaBusiness.reserva.origem}" />
+							<h:outputText value="Origem: " />
+							<h:outputText styleClass="bold" value="#{reservaBusiness.reserva.origem}" />
 							<br />
 							<h:outputText
-								value="Hora de saída: #{reservaBusiness.reserva.horaSaida}" />
+								value="Hora de saída: " />
+								<h:outputText styleClass="bold" value="#{reservaBusiness.reserva.horaSaida}" />
+							<br />
+							<h:outputText value="Destino: " />
+							<h:outputText styleClass="bold" value="#{reservaBusiness.reserva.destino}" />
 							<br />
 							<h:outputText
-								value="Destino: #{reservaBusiness.reserva.destino}" />
-							<br />
-							<h:outputText
-								value="Hora de chegada: #{reservaBusiness.reserva.horaChegada}" />
+								value="Hora de chegada: " />
+								<h:outputText styleClass="bold" value="#{reservaBusiness.reserva.horaChegada}" />
 							<br />
 						</div>
 					</div>
@@ -55,25 +61,32 @@
 
 				<div class="grid_5 cobranca box2">
 					<div class="box2interno">
-					<h5 class="tituloRes">Dados para cobrança</h5>
+						<h5 class="tituloRes">Dados para cobrança</h5>
 						<div class="alpha grid_3 omega">
-							<h:outputText value="Nome: #{reservaBusiness.cliente.nome}" />
+							<h:outputText value="Nome: " />
+							<h:outputText styleClass="bold" value="#{reservaBusiness.cliente.nome}" />
 							<br />
 							<h:outputText
-								value="Telefone: #{reservaBusiness.cliente.telefone}" />
+								value="Telefone: " />
+								<h:outputText styleClass="bold" value="#{reservaBusiness.cliente.telefone}" />
 							<br />
-							<h:outputText value="Cartão de crédito: #{reservaBusiness.cliente.nCartao}" />
+							<h:outputText
+								value="Cartão de crédito: " />
+								<h:outputText styleClass="bold" value="#{reservaBusiness.cliente.nCartao}" />
 							<br />
 						</div>
 						<div class="alpha grid_2 omega">
 							<h:outputText
-								value="Valor total: #{reservaBusiness.reserva.valor}" />
+								value="Valor total: " />
+								<h:outputText styleClass="bold" value="#{reservaBusiness.reserva.valor}" />
 							<br />
 							<h:outputText
-								value="Pagamento: #{reservaBusiness.reserva.formaPagamento}" />
+								value="Pagamento: " />
+								<h:outputText styleClass="bold" value="#{reservaBusiness.reserva.formaPagamento}" />
 							<br />
 							<h:outputText
-								value="Parcelas: #{reservaBusiness.reserva.numParcelas}" />
+								value="Parcelas: " />
+								<h:outputText styleClass="bold" value="#{reservaBusiness.reserva.numParcelas}" />
 							<br />
 						</div>
 					</div>
@@ -84,8 +97,8 @@
 			<div class="grid_12 tituloRes2">
 				<h5>Insira os dados dos passageiros</h5>
 			</div>
-			
-			<c:forEach items="#{reservaBusiness.passageiros}" var="passageiro" >
+
+			<c:forEach items="#{reservaBusiness.passageiros}" var="passageiro">
 				<div>
 					<div class="grid_3">
 						<div class="box boxCadPas">
@@ -99,7 +112,7 @@
 							</h6>
 							<h:panelGrid columns="4">
 								<h:outputLabel value="ida" />
-								<h:inputText size="5" value="#{passageiro.assentoIda}" />
+								<h:outputText styleClass="bold" value="#{passageiro.assentoIda}" />
 								<h:outputLabel value="volta" />
 								<h:inputText size="5" value="#{passageiro.assentoVolta}" />
 							</h:panelGrid>

@@ -9,5 +9,6 @@ public interface VooDAO {
 	public List listar() throws ReservasDAOException;
 	public List listarVoosDisp(int codOrigem, int codDestino ) throws ReservasDAOException;
 	public List listarTodosVoos() throws ReservasDAOException;
+	public List listarEscalas(String codVoo) throws ReservasDAOException;
 
 }

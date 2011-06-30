@@ -240,6 +240,12 @@ public class ReservaBusiness {
 		return "cadastroReserva";
 	}
 	
+	public DataModel getDetalhesVoo() throws ReservasDAOException {
+		VooDAO vooDao = new VooDAOImpl();
+        model = new ListDataModel(vooDao.listarEscalas(this.vooCompleto.getCodigo()));
+        return model;
+	}
+	
 	public DataModel getTodasReservas() throws ReservasDAOException {
 		ReservaDAO reservaDao = new ReservaDAOImpl();
         model = new ListDataModel(reservaDao.listar(cliente.getEmail()));

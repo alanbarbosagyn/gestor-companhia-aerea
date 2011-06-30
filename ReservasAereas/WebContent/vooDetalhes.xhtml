@@ -12,7 +12,10 @@
 		<ui:include src="/header.xhtml" />
 	</f:view>
 		<div class="container_12 vooDisp">
-		<h4>Lista de vôos disponíveis</h4>
+		<h:form>
+		<h5><h:link outcome="voo.jsf" value="Voltar para vôos"/></h5>
+		</h:form>
+		<h4>Detalhes do vôo</h4>
 			<h:dataTable value="#{reservaBusiness.todosVoos}"
 				styleClass="tabela" rowClasses="odd,even" var="v">
 				<h:column>

@@ -230,3 +230,17 @@ table.tipoPassagem {
 div.box.boxCadPas h6 {
 	margin-bottom: 0px;
 }
+
+.bold {
+	font-weight: bold;
+}
+
+.login {
+	margin-top: 80px;
+	padding: 20px;
+}
+
+#log {
+	margin-bottom: -10px;
+}
+

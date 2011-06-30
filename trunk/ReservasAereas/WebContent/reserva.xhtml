@@ -47,9 +47,9 @@
 				<div class="grid_3" id="gridOrigem">
 					<div class="box" id="boxOrigem">
 						<h5>Origem</h5>
-						<h:selectOneMenu id="cidadeOrigem" 
-							value="#{reservaBusiness.reserva.codAerpIda}" >
-							<f:selectItem itemValue="" 
+						<h:selectOneMenu id="cidadeOrigem"
+							value="#{reservaBusiness.reserva.codAerpIda}">
+							<f:selectItem itemValue=""
 								itemLabel="Selecionar cidade de origem" />
 							<f:selectItems id="listaOrigem"
 								value="#{reservaBusiness.cidades}" />
@@ -67,7 +67,7 @@
 								itemLabel="Selecionar cidade de destino" />
 							<f:selectItems id="listaDestinos"
 								value="#{reservaBusiness.destinobyOrigem}" />
-							<f:ajax render="voos" execute="@all"/>
+							<f:ajax render="voos" execute="@all" />
 						</h:selectOneMenu>
 					</div>
 				</div>
@@ -102,7 +102,7 @@
 					
 				</div>
 				<c:if
-					test="${!empty reservaBusiness.aer.numero and !empty reservaBusiness.aer2.numero}">
+					test="${!empty reservaBusiness.reserva.codAerpIda and !empty reservaBusiness.reserva.codAerpVolta}">
 					<div class="grid_12 vooDisp" id="divVoosDisp">
 						<h:dataTable value="#{reservaBusiness.voosDisp}" id="voos"
 							styleClass="tabela" rowClasses="odd,even" var="v">
@@ -123,7 +123,8 @@
 									<h:outputText value="Data" />
 								</f:facet>
 								<h:outputText id="date" value="#{v.data}">
-									<f:convertDateTime dateStyle="short" type="date" pattern="dd/MM/yyyy" />
+									<f:convertDateTime dateStyle="short" type="date"
+										pattern="dd/MM/yyyy" />
 								</h:outputText>
 							</h:column>
 							<h:column>
@@ -160,7 +161,7 @@
 								<f:facet name="header">
 									<h:outputText value="Opções" />
 								</f:facet>
-									<h:commandLink styleClass="reservar" value="reservar" 
+								<h:commandLink styleClass="reservar" value="reservar"
 									action="#{reservaBusiness.reservar}" />
 							</h:column>
 						</h:dataTable>

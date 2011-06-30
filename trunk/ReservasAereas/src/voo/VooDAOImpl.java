@@ -167,4 +167,44 @@ public class VooDAOImpl implements VooDAO {
 		}
 	}
 
+	@Override
+	public List listarEscalas(String codVoo) throws ReservasDAOException {
+		PreparedStatement ps = null;
+		Connection conn1 = null;
+		ResultSet rs = null;
+
+		try {
+			List<VooCompleto> listVoo = new ArrayList<VooCompleto>();
+			String sql = "select  v.codigo, comp.nome, d.data, a1.cidade as Origem, " +
+					"e.horaSaida, a2.cidade as Destino, e.horaChegada, e.preco from voo v, " +
+					"companhiaaerea comp, diassemana d, aeroporto a1, aeroporto a2, " +
+					"escala e where (e.num_aerptOrigem = ? and e.num_aerptDestino = ? ) and " +
+					"e.cod_voo = v.codigo and v.num_cpaerea = comp.numero and " +
+					"v.codigo = d.cod_voo and e.num_aerptOrigem = a1.numero and e.num_aerptDestino = a2.numero;";
+			conn1 = this.conn;
+			ps = conn1.prepareStatement(sql);
+			ps.setString(1, codVoo);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				String codigo = rs.getString("codigo");
+				String companhia = rs.getString("nome");
+				Date data = rs.getDate("data");
+				String origem = rs.getString("origem");
+				String destino = rs.getString("destino");
+				String horaSaida = rs.getString("horaSaida");
+				String horaChegada = rs.getString("horaChegada");
+				Double valor = rs.getDouble("preco");
+
+				listVoo.add(new VooCompleto(codigo, companhia, data, origem,
+						destino, horaSaida, horaChegada, valor));
+			}
+
+			return listVoo;
+		} catch (SQLException e) {
+			throw new ReservasDAOException("Erro ao listar V™os!" + e);
+		} finally {
+			Conexao.closeConnection(conn1, ps, rs);
+		}
+	}
+
 }

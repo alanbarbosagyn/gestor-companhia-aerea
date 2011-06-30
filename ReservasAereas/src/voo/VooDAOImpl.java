@@ -178,7 +178,7 @@ public class VooDAOImpl implements VooDAO {
 			String sql = "select  v.codigo, comp.nome, d.data, a1.cidade as Origem, " +
 					"e.horaSaida, a2.cidade as Destino, e.horaChegada, e.preco from voo v, " +
 					"companhiaaerea comp, diassemana d, aeroporto a1, aeroporto a2, " +
-					"escala e where (e.num_aerptOrigem = ? and e.num_aerptDestino = ? ) and " +
+					"escala e where (v.codigo = ? ) and " +
 					"e.cod_voo = v.codigo and v.num_cpaerea = comp.numero and " +
 					"v.codigo = d.cod_voo and e.num_aerptOrigem = a1.numero and e.num_aerptDestino = a2.numero;";
 			conn1 = this.conn;

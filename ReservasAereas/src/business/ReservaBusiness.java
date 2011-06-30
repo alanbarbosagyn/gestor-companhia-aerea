@@ -247,6 +247,12 @@ public class ReservaBusiness {
 		return "cadastroReserva";
 	}
 	
+	public String detalharVoo() throws ReservasDAOException {
+		getVooCompletoManipulacao();
+		setVooCompleto(vooCompleto);
+		return "vooDetalhes";
+	}
+	
 	public DataModel getDetalhesVoo() throws ReservasDAOException {
 		VooDAO vooDao = new VooDAOImpl();
         model = new ListDataModel(vooDao.listarEscalas(this.vooCompleto.getCodigo()));

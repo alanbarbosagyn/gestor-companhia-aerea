@@ -25,7 +25,7 @@
 		<br />
 		<h:form id="reserva">
 			<div class="voo" id="divVoo">
-				<div class="grid_4">
+				<div class="grid_3">
 					<div class="box">
 						<h5>Tipo de passagem</h5>
 						<h:selectOneRadio value="#{reservaBusiness.reserva.tipo}"
@@ -58,13 +58,6 @@
 						</h:selectOneMenu>
 					</div>
 				</div>
-				<div class="grid_2">
-					<div class="box">
-						<h5>Ação</h5>
-						<h:commandButton action="#{reservaBusiness.reload}"
-							value="Carregar destinos" />
-					</div>
-				</div>
 				<div class="grid_3" id="gridDestino">
 					<div class="box" id="boxDestino">
 						<h5>Destino</h5>
@@ -78,10 +71,35 @@
 						</h:selectOneMenu>
 					</div>
 				</div>
+				<div class="grid_3">
+					<div class="box cobranca">
+						<h5>Forma de pagamento</h5>
+						<h:selectOneMenu style="margin-top:-10px;"
+							value="#{reservaBusiness.reserva.formaPagamento}">
+							<f:selectItem itemValue="avista" itemLabel="à vista" />
+							<f:selectItem itemValue="aprazo" itemLabel="a prazo" />
+						</h:selectOneMenu>
+						<br/>
+						<h:selectOneMenu style="margin-top:10px;"
+							value="#{reservaBusiness.reserva.formaPagamento}">
+							<f:selectItem itemValue="" itemLabel="parcelas" />
+							<f:selectItem itemValue="1" itemLabel="1 parcela" />
+							<f:selectItem itemValue="2" itemLabel="2 parcelas" />
+							<f:selectItem itemValue="3" itemLabel="3 parcelas" />
+							<f:selectItem itemValue="4" itemLabel="4 parcelas" />
+							<f:selectItem itemValue="5" itemLabel="5 parcelas" />
+							<f:selectItem itemValue="6" itemLabel="6 parcelas" />
+							<f:selectItem itemValue="7" itemLabel="7 parcelas" />
+							<f:selectItem itemValue="8" itemLabel="8 parcelas" />
+							<f:selectItem itemValue="9" itemLabel="9 parcelas" />
+							<f:selectItem itemValue="10" itemLabel="10 parcelas" />
+							<f:selectItem itemValue="11" itemLabel="11 parcelas" />
+							<f:selectItem itemValue="12" itemLabel="12 parcelas" />
+						</h:selectOneMenu>
+					</div>
+				</div>
 				<div class="grid_12">
-					<h:commandButton styleClass="botao-formulario acao"
-						action="#{reservaBusiness.listarDestinos}"
-						value="Listar vôos disponíveis" />
+					
 				</div>
 				<c:if
 					test="${!empty reservaBusiness.aer.numero and !empty reservaBusiness.aer2.numero}">
@@ -142,8 +160,8 @@
 								<f:facet name="header">
 									<h:outputText value="Opções" />
 								</f:facet>
-									<h:commandLink styleClass="reservar" value="reservar"
-										action="#{reservaBusiness.reservar}" />
+									<h:commandLink styleClass="reservar" value="reservar" 
+									action="#{reservaBusiness.reservar}" />
 							</h:column>
 						</h:dataTable>
 					</div>

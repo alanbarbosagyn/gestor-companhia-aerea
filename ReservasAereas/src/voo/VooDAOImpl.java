@@ -93,7 +93,7 @@ public class VooDAOImpl implements VooDAO {
 
 		try {
 			List<VooCompleto> listVoo = new ArrayList<VooCompleto>();
-			String sql = "select  v.codigo, comp.nome, d.data, a1.cidade as Origem, " +
+			String sql = "select v.codigo, comp.nome, d.data, a1.cidade as Origem, " +
 					"e1.horaSaida, a2.cidade as Destino, e2.horaChegada, e2.preco from voo v, " +
 					"companhiaaerea comp, diassemana d, aeroporto a1, aeroporto a2, escala e1, " +
 					"escala e2 where v.codigo = e1.cod_voo and v.codigo=e2.cod_voo and " +
@@ -103,6 +103,7 @@ public class VooDAOImpl implements VooDAO {
 			ps = conn1.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while (rs.next()) {
+
 				String codigo = rs.getString("codigo");
 				String companhia = rs.getString("nome");
 				Date data = rs.getDate("data");
@@ -118,7 +119,7 @@ public class VooDAOImpl implements VooDAO {
 
 			return listVoo;
 		} catch (SQLException e) {
-			throw new ReservasDAOException("Erro ao procurar Usuarios" + e);
+			throw new ReservasDAOException("Erro ao listar V™os" + e);
 		} finally {
 			Conexao.closeConnection(conn1, ps, rs);
 		}
@@ -145,14 +146,14 @@ public class VooDAOImpl implements VooDAO {
 			ps.setInt(2, codDestino);
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				String codigo = rs.getString("v.codigo");
-				String companhia = rs.getString("comp.nome");
-				Date data = rs.getDate("d.data");
-				String origem = rs.getString("a1.cidade");
-				String destino = rs.getString("a2.cidade");
-				String horaSaida = rs.getString("e.horaSaida");
-				String horaChegada = rs.getString("e.horaChegada");
-				Double valor = rs.getDouble("e.preco");
+				String codigo = rs.getString("codigo");
+				String companhia = rs.getString("nome");
+				Date data = rs.getDate("data");
+				String origem = rs.getString("origem");
+				String destino = rs.getString("destino");
+				String horaSaida = rs.getString("horaSaida");
+				String horaChegada = rs.getString("horaChegada");
+				Double valor = rs.getDouble("preco");
 
 				listVoo.add(new VooCompleto(codigo, companhia, data, origem,
 						destino, horaSaida, horaChegada, valor));
@@ -160,7 +161,7 @@ public class VooDAOImpl implements VooDAO {
 
 			return listVoo;
 		} catch (SQLException e) {
-			throw new ReservasDAOException("Erro ao procurar Usuarios" + e);
+			throw new ReservasDAOException("Erro ao listar V™os!" + e);
 		} finally {
 			Conexao.closeConnection(conn1, ps, rs);
 		}

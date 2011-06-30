@@ -26,6 +26,8 @@ import cliente.Cliente;
 import cliente.ClienteDAO;
 import cliente.ClienteDAOImpl;
 import escala.Escala;
+import escala.EscalaDAO;
+import escala.EscalaDAOImpl;
 import aeroporto.Aeroporto;
 import aeroporto.AeroportoDAO;
 import aeroporto.AeroportoDAOImpl;
@@ -281,16 +283,29 @@ public class ReservaBusiness {
 
 	public String editarReserva() throws ReservasDAOException {
 		getReservaManipulacao();
-		ReservaDAO interfaceReservaDao = new ReservaDAOImpl();
+		/*ReservaDAO interfaceReservaDao = new ReservaDAOImpl();
 		Reserva aux = new Reserva();
 		aux = interfaceReservaDao.procurar(reserva.getCodigo());
-		// aux.
-		// setReserva(reserva);
-		// this.reserva.setCompanhia(aux.getCompanhia())
+		/*AeroportoDAO aerDao = new AeroportoDAOImpl();
+		Aeroporto aer = aerDao.procurar(reserva.getCodVooIda());
+		reserva.setOrigem(aer.getCidade());
+		aer = aerDao.procurar(reserva.getCodVooVolta());
+		reserva.setDestino(aer.getCidade());
+		EscalaDAO escDao = new EscalaDAOImpl();
+		Escala esc = escDao.procurar(reserva.getCodVooIda(), reserva.getCodAerpIda(), reserva.getCodAerpVolta());
+		reserva.setHoraChegada(esc.getHoraChegada());
+		reserva.setHoraSaida(esc.getHoraSaida());*/
+		VooDAO vooDao = new VooDAOImpl();
+		ArrayList <VooCompleto> voo = (ArrayList<VooCompleto>) vooDao.listarVoosDisp(this.reserva.getCodAerpIda(), this.reserva.getCodAerpVolta());
+		VooCompleto v = voo.get(0);
+		this.reserva.setCompanhia(v.getCompanhia());
+		this.reserva.setDestino(v.getDestino());
+		this.reserva.setHoraChegada(v.getHoraChegada());
+		this.reserva.setHoraSaida(v.getHoraSaida());
+		this.reserva.setOrigem(v.getOrigem());
+		this.reserva.setDataVoo(v.getData());
 		PassageiroDAO interfaceDao = new PassageiroDAOImpl();
-		this.passageiros = (ArrayList<Passageiro>) interfaceDao
-				.listarPassDaReserva(this.cliente.getEmail(),
-						this.reserva.getCodigo());
+		this.passageiros = (ArrayList<Passageiro>) interfaceDao.listarPassDaReserva(this.cliente.getEmail(),this.reserva.getCodigo());
 		return "editaReserva";
 	}
 

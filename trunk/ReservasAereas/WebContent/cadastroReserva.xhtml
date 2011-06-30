@@ -27,10 +27,10 @@
 							</h:outputText>
 							<br />
 							<h:outputText
-								value="Código do vôo: #{reservaBusiness.vooCompleto.codigo}" />
+								value="Código do vôo: #{reservaBusiness.reserva.codVooIda}" />
 							<br />
 							<h:outputText
-								value="Campanhia: #{reservaBusiness.vooCompleto.companhia}" />
+								value="Campanhia: #{reservaBusiness.reserva.companhia}" />
 							<br />
 							<h:outputText
 								value="Qtde de passageiros: #{reservaBusiness.reserva.numPassageiros}" />
@@ -38,16 +38,16 @@
 						</div>
 						<div class="grid_3 alpha omega">
 							<h:outputText
-								value="Origem: #{reservaBusiness.vooCompleto.origem}" />
+								value="Origem: #{reservaBusiness.reserva.origem}" />
 							<br />
 							<h:outputText
-								value="Hora de saída: #{reservaBusiness.vooCompleto.horaSaida}" />
+								value="Hora de saída: #{reservaBusiness.reserva.horaSaida}" />
 							<br />
 							<h:outputText
-								value="Destino: #{reservaBusiness.vooCompleto.destino}" />
+								value="Destino: #{reservaBusiness.reserva.destino}" />
 							<br />
 							<h:outputText
-								value="Hora de chegada: #{reservaBusiness.vooCompleto.horaChegada}" />
+								value="Hora de chegada: #{reservaBusiness.reserva.horaChegada}" />
 							<br />
 						</div>
 					</div>
@@ -67,7 +67,7 @@
 						</div>
 						<div class="alpha grid_2 omega">
 							<h:outputText
-								value="Valor total: #{reservaBusiness.vooCompleto.valor}" />
+								value="Valor total: #{reservaBusiness.reserva.valor}" />
 							<br />
 							<h:outputText
 								value="Pagamento: #{reservaBusiness.reserva.formaPagamento}" />

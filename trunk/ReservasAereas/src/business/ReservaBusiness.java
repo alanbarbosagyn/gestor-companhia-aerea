@@ -228,10 +228,22 @@ public class ReservaBusiness {
 		this.setReserva(new Reserva());
 		return "reserva";
 	}	
+	public void parseVooCompletoToReserva() throws ReservasDAOException {
+		this.reserva.setValor(this.vooCompleto.getValor()*this.reserva.getNumPassageiros());
+		this.reserva.setCodVooIda(this.vooCompleto.getCodigo());
+		this.reserva.setCompanhia(this.vooCompleto.getCompanhia());
+		this.reserva.setDataVoo(this.vooCompleto.getData());
+		this.reserva.setOrigem(this.vooCompleto.getOrigem());
+		this.reserva.setDestino(this.vooCompleto.getDestino());
+		this.reserva.setHoraSaida(this.vooCompleto.getHoraSaida());
+		this.reserva.setHoraChegada(this.vooCompleto.getHoraChegada());
+	}
+	
 	
 	public String reservar() throws ReservasDAOException {
 		getVooCompletoManipulacao();
         setVooCompleto(vooCompleto);
+        parseVooCompletoToReserva();
         this.passageiros = new ArrayList<Passageiro>(this.reserva.getNumPassageiros());
         for(int i = 0; i < this.reserva.getNumPassageiros(); i++){
         	Passageiro p = new Passageiro();

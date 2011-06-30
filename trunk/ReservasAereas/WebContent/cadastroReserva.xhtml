@@ -28,19 +28,22 @@
 								value="Código do vôo: #{reservaBusiness.vooCompleto.codigo}" />
 							<br />
 							<h:outputText
+								value="Campanhia: #{reservaBusiness.vooCompleto.companhia}" />
+							<br />
+							<h:outputText
 								value="Qtde de passageiros: #{reservaBusiness.reserva.numPassageiros}" />
 							<br />
 						</div>
 						<div class="grid_4 alpha omega">
-							<h:outputText value="Origem: #{reservaBusiness.aer.cidade}" />
+							<h:outputText value="Origem: #{reservaBusiness.vooCompleto.origem}" />
 							<br />
 							<h:outputText
-								value="Hora de saída: #{reservaBusiness.escala.horaSaida}" />
+								value="Hora de saída: #{reservaBusiness.vooCompleto.horaSaida}" />
 							<br />
-							<h:outputText value="Destino #{reservaBusiness.aer2.cidade}" />
+							<h:outputText value="Destino #{reservaBusiness.vooCompleto.destino}" />
 							<br />
 							<h:outputText
-								value="Hora de chegada: #{reservaBusiness.escala.horaChegada}" />
+								value="Hora de chegada: #{reservaBusiness.vooCompleto.horaChegada}" />
 							<br />
 						</div>
 					</div>

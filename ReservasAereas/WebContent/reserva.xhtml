@@ -47,9 +47,9 @@
 				<div class="grid_3" id="gridOrigem">
 					<div class="box" id="boxOrigem">
 						<h5>Origem</h5>
-						<h:selectOneMenu id="cidadeOrigem"
-							value="#{reservaBusiness.reserva.codAerpIda}">
-							<f:selectItem itemValue=""
+						<h:selectOneMenu id="cidadeOrigem" 
+							value="#{reservaBusiness.reserva.codAerpIda}" >
+							<f:selectItem itemValue="" 
 								itemLabel="Selecionar cidade de origem" />
 							<f:selectItems id="listaOrigem"
 								value="#{reservaBusiness.cidades}" />
@@ -144,7 +144,7 @@
 								</f:facet>
 								<h:form>
 									<h:commandLink styleClass="reservar" value="reservar"
-										action="#{reservaBusiness.fazerReserva}" />
+										action="#{reservaBusiness.reservar}" />
 								</h:form>
 							</h:column>
 						</h:dataTable>

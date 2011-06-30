@@ -6,29 +6,54 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<title>Gestor de companhia aérea</title>
 </h:head>
 <h:body>
 
-<div align="center">
-<h1><h:outputText value="Login" /></h1>
+	<div>
+		<div class="container_12">
+			<div class="prefix_4">
+				<div class="grid_4 box login">
+					<h1>
+						<h:outputText value="Login" />
+					</h1>
 
-<h:form>
-<h:panelGrid columns="3">
+					<h:form>
 
-<h:outputLabel value="Email:"/>
-<h:inputText id="email" value="#{reservaBusiness.cliente.email}" required="true" requiredMessage="Este campo é obrigatório!"/>
-<h:message styleClass="error" for="email"/>
+						<div id="log">
+						
+							<h:outputLabel value="Email:" />
 
-<h:outputLabel value="Senha:"/>
-<h:inputSecret id="senha" value="#{reservaBusiness.cliente.senha}" required="true" requiredMessage="Este campo é obrigatório!"/>
-<h:message styleClass="error" for="senha"/>
+							<h:inputText id="email" value="#{reservaBusiness.cliente.email}"
+								required="true" requiredMessage="Campo email é obrigatório!" />
+						</div>
+						<br />
 
-<h:commandButton action="#{reservaBusiness.autenticaCliente}" value="Logar" />
+						<div id="log">
+							<h:outputLabel value="Senha:" />
 
-</h:panelGrid>
-</h:form>
-</div>
+							<h:inputSecret id="senha"
+								value="#{reservaBusiness.cliente.senha}" required="true"
+								requiredMessage="Campo senha é obrigatório!" />
+						</div>
+						<br />
+
+
+						<h:commandButton action="#{reservaBusiness.autenticaCliente}"
+							value="Logar" />
+						<br />
+						
+
+
+						<h:message styleClass="error" for="email" />
+						<br />
+						<h:message styleClass="error" for="senha" />
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </h:body>
 </html>

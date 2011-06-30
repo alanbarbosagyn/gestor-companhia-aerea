@@ -34,7 +34,7 @@ public class PassageiroDAOImpl implements PassageiroDAO {
 		if (passageiro == null)
 			throw new ReservasDAOException("Nenhum passageiro foi informado!");
 		try {
-			String sql = "INSERT INTO passageiro (cod_reserva, assentoida, nome, assentovolta)"
+			String sql = "INSERT INTO passageiro (cod_reserva, nome, assentoida, assentovolta)"
 					+ "values (?, ?, ?, ? )";
 			conn1 = this.conn;
 			ps = conn1.prepareStatement(sql);
@@ -49,6 +49,37 @@ public class PassageiroDAOImpl implements PassageiroDAO {
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			throw new ReservasDAOException("Erro ao inserir passageiro " + e);
+		} finally {
+			Conexao.closeConnection(conn1, ps);
+		}
+
+	}
+
+	public void gravarLista(ArrayList<Passageiro> passageiros)
+			throws ReservasDAOException {
+		PreparedStatement ps = null;
+		Connection conn1 = null;
+		if (passageiros == null)
+			throw new ReservasDAOException("Nenhuma lista de passageiros foi informado!");
+
+		try {
+			for (Passageiro passageiro : passageiros) {
+				String sql = "INSERT INTO passageiro (cod_reserva, nome, assentoida, assentovolta)"
+						+ "values (?, ?, ?, ? )";
+				conn1 = this.conn;
+				ps = conn1.prepareStatement(sql);
+				ps.setString(1, passageiro.getCodReserva().trim());
+				ps.setString(2, passageiro.getNome());
+				ps.setString(3, passageiro.getAssentoIda().trim());
+				if (passageiro.getAssentoIda() != null
+						|| !passageiro.getAssentoIda().equalsIgnoreCase("")) {
+					ps.setString(4, passageiro.getAssentoVolta().trim());
+				}
+
+				ps.executeUpdate();
+			}
+		} catch (SQLException e) {
+			throw new ReservasDAOException("Erro ao inserir lista de passageiros " + e);
 		} finally {
 			Conexao.closeConnection(conn1, ps);
 		}
@@ -172,7 +203,7 @@ public class PassageiroDAOImpl implements PassageiroDAO {
 	}
 
 	@Override
-	public List listarPassDaReserva(String email) throws ReservasDAOException {
+	public List listarPassDaReserva(String email, String codigo) throws ReservasDAOException {
 		PreparedStatement ps = null;
 		Connection conn1 = null;
 		ResultSet rs = null;
@@ -180,17 +211,18 @@ public class PassageiroDAOImpl implements PassageiroDAO {
 		try {
 			List<Passageiro> listPassageiro = new ArrayList<Passageiro>();
 			String sql = "SELECT p.cod_reserva, p.assentoida, p.nome, p.assentovolta"
-					+ "FROM passageiro p, cliente c, reserva r"
-					+ "where c.email= ? and c.email = r.cliente_email and r.codigo = p.cod_reserva";
+					+ " FROM passageiro p, cliente c, reserva r"
+					+ " where c.email= ? and c.email = r.cliente_email and r.codigo = p.cod_reserva and r.codigo = ?";
 			conn1 = this.conn;
 			ps = conn1.prepareStatement(sql);
 			ps.setString(1, email);
+			ps.setString(2, codigo);
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				String nome = rs.getString("p.cod_reserva");
-				String codReserva = rs.getString("p.nome");
-				String assentoIda = rs.getString("p.assentoida");
-				String assentoVolta = rs.getString("p.assentovolta");
+				String nome = rs.getString("nome");
+				String codReserva = rs.getString("cod_reserva");
+				String assentoIda = rs.getString("assentoida");
+				String assentoVolta = rs.getString("assentovolta");
 
 				listPassageiro.add(new Passageiro(nome, codReserva, assentoIda,
 						assentoVolta));
@@ -201,6 +233,37 @@ public class PassageiroDAOImpl implements PassageiroDAO {
 			throw new ReservasDAOException("Erro ao procurar Usuarios" + e);
 		} finally {
 			Conexao.closeConnection(conn1, ps, rs);
+		}
+	}
+
+	@Override
+	public void atualizarLista(ArrayList<Passageiro> passageiros) throws ReservasDAOException {
+		PreparedStatement ps = null;
+		Connection conn1 = null;
+		if (passageiros == null) {
+			throw new ReservasDAOException("Nenhum Lista de passageiros foi informada!");
+		}
+		try {
+			for (Passageiro passageiro : passageiros) {
+
+				String sql = "UPDATE passageiro SET cod_reserva=?, assentoida=?, "
+						+ "nome=? assentovolta=? "
+						+ "WHERE cod_reserva=? AND assentoida=?";
+				conn1 = this.conn;
+				ps = conn1.prepareStatement(sql);
+				ps.setString(1, passageiro.getCodReserva());
+				ps.setString(2, passageiro.getAssentoIda());
+				ps.setString(3, passageiro.getNome());
+				ps.setString(4, passageiro.getAssentoVolta());
+				ps.setString(5, passageiro.getCodReserva());
+				ps.setString(6, passageiro.getAssentoIda());
+
+				ps.executeUpdate();
+			}
+		} catch (SQLException e) {
+			throw new ReservasDAOException("Erro ao atualizar lista de Passageiros" + e);
+		} finally {
+			Conexao.closeConnection(conn1, ps);
 		}
 	}
 

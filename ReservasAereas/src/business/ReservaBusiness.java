@@ -32,7 +32,7 @@ import apoio.ReservasDAOException;
 
 public class ReservaBusiness {
 	private Cliente cliente = new Cliente();
-	private List<Passageiro> passageiros = new ArrayList();
+	private ArrayList<Passageiro> passageiros = null;
 	private Voo voo = new Voo();
 	private VooCompleto vooCompleto = new VooCompleto();
 	private Aeroporto aer = new Aeroporto();
@@ -83,11 +83,11 @@ public class ReservaBusiness {
 		this.aer = aer;
 	}
 
-	public List<Passageiro> getPassageiros() {
+	public ArrayList<Passageiro> getPassageiros() {
 		return passageiros;
 	}
 
-	public void setPassageiros(List<Passageiro> passageiros) {
+	public void setPassageiros(ArrayList<Passageiro> passageiros) {
 		this.passageiros = passageiros;
 	}
 
@@ -227,22 +227,16 @@ public class ReservaBusiness {
 	public String fazerReserva() throws ReservasDAOException {
 		this.setReserva(new Reserva());
 		return "reserva";
-	}
-	
-	public String teste() throws ReservasDAOException {
-		for(int i = 0; i < this.reserva.getNumPassageiros(); i++){
-			this.passageiros.add(new Passageiro());
-		}
-		System.out.println("Teste ##########################");
-		return "cadastroReserva";
-	}
-	
+	}	
 	
 	public String reservar() throws ReservasDAOException {
 		getVooCompletoManipulacao();
         setVooCompleto(vooCompleto);
+        this.passageiros = new ArrayList<Passageiro>(this.reserva.getNumPassageiros());
         for(int i = 0; i < this.reserva.getNumPassageiros(); i++){
-			this.passageiros.add(new Passageiro());
+        	Passageiro p = new Passageiro();
+        	p.setNome("Passageiro" + i);
+			this.passageiros.add(p);
 		}
 		return "cadastroReserva";
 	}

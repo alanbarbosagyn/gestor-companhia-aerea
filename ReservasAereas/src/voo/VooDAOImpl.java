@@ -5,12 +5,19 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+
+import javax.swing.text.DateFormatter;
 
 import cliente.Cliente;
 
 import reserva.Reserva;
+import sun.util.resources.CalendarData;
 import apoio.Conexao;
 import apoio.ReservasDAOException;
 
@@ -123,6 +130,17 @@ public class VooDAOImpl implements VooDAO {
 		} finally {
 			Conexao.closeConnection(conn1, ps, rs);
 		}
+	}
+	
+	public java.util.Date formatDate(java.sql.Date d) throws ReservasDAOException{
+		java.util.Date data = new java.util.Date(d.getTime());
+		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		try {
+			data = df.parse(data.toString());
+		} catch (ParseException e) {
+			throw new ReservasDAOException("Erro ao converter Data" + e);
+		}
+		return data;
 	}
 
 	@Override

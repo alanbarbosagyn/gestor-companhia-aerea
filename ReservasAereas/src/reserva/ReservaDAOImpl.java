@@ -45,6 +45,9 @@ public class ReservaDAOImpl implements ReservaDAO {
 					+ "cod_voovolta, num_aerptorigem, num_aerptdestino, cliente_email)"
 					+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
 			conn1 = this.conn;
+			/*if(reserva.getNumParcelas() <= 1){
+				reserva.setNumParcelas(1);
+			}*/
 			ps = conn1.prepareStatement(sql);
 			ps.setString(1, reserva.getCodigo());
 			ps.setString(2, reserva.getTipo());

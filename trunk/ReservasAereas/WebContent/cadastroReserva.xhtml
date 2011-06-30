@@ -22,7 +22,9 @@
 							<h:outputText
 								value="Valor total: #{reservaBusiness.vooCompleto.valor}" />
 							<br />
-							<h:outputText value="Data de embarque: " />
+							<h:outputText value="Data de embarque: #{reservaBusiness.vooCompleto.data}" >
+								<f:convertDateTime dateStyle="short" type="date" pattern="dd/MM/yyyy"/>
+							</h:outputText>
 							<br />
 							<h:outputText
 								value="Código do vôo: #{reservaBusiness.vooCompleto.codigo}" />

@@ -93,7 +93,7 @@ public class VooDAOImpl implements VooDAO {
 
 		try {
 			List<VooCompleto> listVoo = new ArrayList<VooCompleto>();
-			String sql = "select v.codigo, comp.nome, d.data, a1.cidade as Origem, " +
+			String sql = "select  v.codigo, comp.nome, d.data, a1.cidade as Origem, " +
 					"e1.horaSaida, a2.cidade as Destino, e2.horaChegada, e2.preco from voo v, " +
 					"companhiaaerea comp, diassemana d, aeroporto a1, aeroporto a2, escala e1, " +
 					"escala e2 where v.codigo = e1.cod_voo and v.codigo=e2.cod_voo and " +
@@ -119,7 +119,7 @@ public class VooDAOImpl implements VooDAO {
 
 			return listVoo;
 		} catch (SQLException e) {
-			throw new ReservasDAOException("Erro ao listar V™os" + e);
+			throw new ReservasDAOException("Erro ao procurar Usuarios" + e);
 		} finally {
 			Conexao.closeConnection(conn1, ps, rs);
 		}
@@ -151,8 +151,8 @@ public class VooDAOImpl implements VooDAO {
 				Date data = rs.getDate("data");
 				String origem = rs.getString("origem");
 				String destino = rs.getString("destino");
-				String horaSaida = rs.getString("horaSaida");
-				String horaChegada = rs.getString("horaChegada");
+				String horaSaida = rs.getString("horasaida");
+				String horaChegada = rs.getString("horachegada");
 				Double valor = rs.getDouble("preco");
 
 				listVoo.add(new VooCompleto(codigo, companhia, data, origem,
@@ -161,7 +161,7 @@ public class VooDAOImpl implements VooDAO {
 
 			return listVoo;
 		} catch (SQLException e) {
-			throw new ReservasDAOException("Erro ao listar V™os!" + e);
+			throw new ReservasDAOException("Erro ao listar Voos!" + e);
 		} finally {
 			Conexao.closeConnection(conn1, ps, rs);
 		}

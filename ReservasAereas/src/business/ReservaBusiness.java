@@ -231,14 +231,23 @@ public class ReservaBusiness {
 		return "cadastroReserva";
 	}
 	
-	public String reservar() throws ReservasDAOException {
+	public String teste() throws ReservasDAOException {
+		for(int i = 0; i < this.reserva.getNumPassageiros(); i++){
+			this.passageiros.add(new Passageiro());
+		}
+		System.out.println("Teste ##########################");
+		return "cadastroReserva";
+	}
+	
+	
+	/*public String reservar() throws ReservasDAOException {
 		getVooCompletoManipulacao();
         setVooCompleto(vooCompleto);
         for(int i = 0; i < this.reserva.getNumPassageiros(); i++){
 			this.passageiros.add(new Passageiro());
 		}
 		return "cadastroReserva";
-	}
+	}*/
 	
 	public DataModel getDetalhesVoo() throws ReservasDAOException {
 		VooDAO vooDao = new VooDAOImpl();

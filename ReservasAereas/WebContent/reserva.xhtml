@@ -7,6 +7,15 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 
+<script type="text/javascript">
+	function exibe(id) {
+		if (document.getElementById(id).style.display == "none") {
+			document.getElementById(id).style.display = "inline";
+		} else {
+			document.getElementById(id).style.display = "none";
+		}
+	}
+</script>
 
 <body>
 	<f:view>
@@ -14,8 +23,8 @@
 	</f:view>
 	<div class="container_12">
 		<br />
-		<h:form>
-			<div class="voo">
+		<h:form id="reserva">
+			<div class="voo" id="divVoo">
 				<div class="grid_4">
 					<div class="box">
 						<h5>Tipo de passagem</h5>
@@ -35,14 +44,17 @@
 						</h:selectOneMenu>
 					</div>
 				</div>
-				<div class="grid_3">
-					<div class="box">
+				<div class="grid_3" id="gridOrigem">
+					<div class="box" id="boxOrigem">
 						<h5>Origem</h5>
 						<h:selectOneMenu id="cidadeOrigem"
 							value="#{reservaBusiness.reserva.codAerpIda}">
 							<f:selectItem itemValue=""
 								itemLabel="Selecionar cidade de origem" />
-							<f:selectItems value="#{reservaBusiness.cidades}" />
+							<f:selectItems id="listaOrigem"
+								value="#{reservaBusiness.cidades}" />
+							<f:ajax event="change" render="reserva:destino"
+								execute="#{reservaBusiness.destinobyOrigem}" />
 						</h:selectOneMenu>
 					</div>
 				</div>
@@ -53,14 +65,16 @@
 							value="Carregar destinos" />
 					</div>
 				</div>
-				<div class="grid_3">
-					<div class="box">
+				<div class="grid_3" id="gridDestino">
+					<div class="box" id="boxDestino">
 						<h5>Destino</h5>
-						<h:selectOneMenu id="cidadeDestino"
+						<h:selectOneMenu id="destino"
 							value="#{reservaBusiness.reserva.codAerpVolta}">
 							<f:selectItem itemValue=""
 								itemLabel="Selecionar cidade de destino" />
-							<f:selectItems value="#{reservaBusiness.destinobyOrigem}" />
+							<f:selectItems id="listaDestinos"
+								value="#{reservaBusiness.destinobyOrigem}" />
+							<f:ajax render="voos" execute="@all"/>
 						</h:selectOneMenu>
 					</div>
 				</div>
@@ -69,9 +83,10 @@
 						action="#{reservaBusiness.listarDestinos}"
 						value="Listar vôos disponíveis" />
 				</div>
-				<c:if test="${!empty reservaBusiness.aer.numero and !empty reservaBusiness.aer2.numero}">
-					<div class="grid_12 vooDisp">
-						<h:dataTable value="#{reservaBusiness.voosDisp}"
+				<c:if
+					test="${!empty reservaBusiness.aer.numero and !empty reservaBusiness.aer2.numero}">
+					<div class="grid_12 vooDisp" id="divVoosDisp">
+						<h:dataTable value="#{reservaBusiness.voosDisp}" id="voos"
 							styleClass="tabela" rowClasses="odd,even" var="v">
 							<h:column>
 								<f:facet name="header">
@@ -89,7 +104,9 @@
 								<f:facet name="header">
 									<h:outputText value="Data" />
 								</f:facet>
-								<h:outputText value="#{v.data}" />
+								<h:outputText id="date" value="#{v.data}">
+									<f:convertDateTime dateStyle="short" type="date" pattern="dd/MM/yyyy" />
+								</h:outputText>
 							</h:column>
 							<h:column>
 								<f:facet name="header">
@@ -126,8 +143,8 @@
 									<h:outputText value="Opções" />
 								</f:facet>
 								<h:form>
-										<h:commandLink styleClass="reservar" value="reservar"
-										action="#{reservaBusiness.teste}"/>
+									<h:commandLink styleClass="reservar" value="reservar"
+										action="#{reservaBusiness.fazerReserva}" />
 								</h:form>
 							</h:column>
 						</h:dataTable>

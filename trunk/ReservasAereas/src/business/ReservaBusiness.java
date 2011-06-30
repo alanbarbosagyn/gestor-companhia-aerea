@@ -2,6 +2,7 @@ package business;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -149,7 +150,7 @@ public class ReservaBusiness {
             retorno = "dashboard";
         } else {
             FacesContext contexto = FacesContext.getCurrentInstance();
-            FacesMessage msg = new FacesMessage("Usu‡rio ou senha inv‡lido(s).");
+            FacesMessage msg = new FacesMessage("Usuario ou senha invalido(s).");
             contexto.addMessage("login", msg);
             setLogado(false);
             retorno = "login";
@@ -174,9 +175,12 @@ public class ReservaBusiness {
 	
 	public String cadastrarReserva() throws ReservasDAOException {
 		ReservaDAO interfaceReserva = new ReservaDAOImpl();
+		String codReserva = "BD111";
+		reserva.setCodigo(codReserva);
 		interfaceReserva.gravar(reserva);
 		PassageiroDAO interfacePassageiro = new PassageiroDAOImpl();
 		for (int i=0; i<passageiros.size(); i++) {
+			passageiros.get(i).setCodReserva(codReserva);
 			interfacePassageiro.gravar(passageiros.get(i));
 		}
 		return "minhasReservas";
@@ -237,6 +241,7 @@ public class ReservaBusiness {
 		this.reserva.setDestino(this.vooCompleto.getDestino());
 		this.reserva.setHoraSaida(this.vooCompleto.getHoraSaida());
 		this.reserva.setHoraChegada(this.vooCompleto.getHoraChegada());
+		this.reserva.setClienteEmail(this.cliente.getEmail());
 	}
 	
 	
@@ -247,7 +252,6 @@ public class ReservaBusiness {
         this.passageiros = new ArrayList<Passageiro>(this.reserva.getNumPassageiros());
         for(int i = 0; i < this.reserva.getNumPassageiros(); i++){
         	Passageiro p = new Passageiro();
-        	p.setNome("Passageiro" + i);
 			this.passageiros.add(p);
 		}
 		return "cadastroReserva";

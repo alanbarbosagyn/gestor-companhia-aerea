@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+
+<body>
+	<f:view>
+		<ui:include src="/header.xhtml" />
+	</f:view>
+	<div class="container_12">
+		<br />
+		<h:form>
+			<div class="voo">
+				<div class="grid_7 box2 cadRes">
+					<div class="box2interno">
+						<h5 class="tituloRes">Dados da passagem</h5>
+						<div class="grid_4 alpha omega">
+							<h:outputText
+								value="Data de embarque: #{reservaBusiness.vooCompleto.data}">
+								<f:convertDateTime dateStyle="short" type="date"
+									pattern="dd/MM/yyyy" />
+							</h:outputText>
+							<br />
+							<h:outputText
+								value="Código do vôo: #{reservaBusiness.reserva.codVooIda}" />
+							<br />
+							<h:outputText
+								value="Campanhia: #{reservaBusiness.reserva.companhia}" />
+							<br />
+							<h:outputText
+								value="Qtde de passageiros: #{reservaBusiness.reserva.numPassageiros}" />
+							<br />
+						</div>
+						<div class="grid_3 alpha omega">
+							<h:outputText
+								value="Origem: #{reservaBusiness.reserva.origem}" />
+							<br />
+							<h:outputText
+								value="Hora de saída: #{reservaBusiness.reserva.horaSaida}" />
+							<br />
+							<h:outputText
+								value="Destino: #{reservaBusiness.reserva.destino}" />
+							<br />
+							<h:outputText
+								value="Hora de chegada: #{reservaBusiness.reserva.horaChegada}" />
+							<br />
+						</div>
+					</div>
+				</div>
+
+				<div class="grid_5 cobranca box2">
+					<div class="box2interno">
+					<h5 class="tituloRes">Dados para cobrança</h5>
+						<div class="alpha grid_3 omega">
+							<h:outputText value="Nome: #{reservaBusiness.cliente.nome}" />
+							<br />
+							<h:outputText
+								value="Telefone: #{reservaBusiness.cliente.telefone}" />
+							<br />
+							<h:outputText value="Cartão de crédito: #{reservaBusiness.cliente.nCartao}" />
+							<br />
+						</div>
+						<div class="alpha grid_2 omega">
+							<h:outputText
+								value="Valor total: #{reservaBusiness.reserva.valor}" />
+							<br />
+							<h:outputText
+								value="Pagamento: #{reservaBusiness.reserva.formaPagamento}" />
+							<br />
+							<h:outputText
+								value="Parcelas: #{reservaBusiness.reserva.numParcelas}" />
+							<br />
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+			<div class="grid_12 tituloRes2">
+				<h5>Insira os dados dos passageiros</h5>
+			</div>
+			
+			<c:forEach items="#{reservaBusiness.passageiros}" var="passageiro" >
+				<div>
+					<div class="grid_3">
+						<div class="box boxCadPas">
+							<h5>Passageiro</h5>
+							<h:panelGrid columns="2">
+								<h:outputLabel value="Nome" />
+								<h:inputText value="#{passageiro.nome}" />
+							</h:panelGrid>
+							<h6>
+								<h:outputText value="Assentos" />
+							</h6>
+							<h:panelGrid columns="4">
+								<h:outputLabel value="ida" />
+								<h:inputText size="5" value="#{passageiro.assentoIda}" />
+								<h:outputLabel value="volta" />
+								<h:inputText size="5" value="#{passageiro.assentoVolta}" />
+							</h:panelGrid>
+						</div>
+					</div>
+				</div>
+			</c:forEach>
+
+			<div class="grid_12 resCon">
+				<h:commandButton styleClass="botao-formulario acao"
+					action="#{reservaBusiness.atualizarReserva}"
+					value="Concluir reserva" />
+			</div>
+
+		</h:form>
+	</div>
+</body>
+</html>

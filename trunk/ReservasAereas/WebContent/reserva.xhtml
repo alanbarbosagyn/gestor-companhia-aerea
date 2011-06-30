@@ -34,7 +34,7 @@
 							<f:selectItem itemValue="idaevolta" itemLabel="ida e volta" />
 						</h:selectOneRadio>
 
-						<h:selectOneMenu style="margin-top:-10px;"
+						<h:selectOneMenu style="margin-top:-5px;"
 							value="#{reservaBusiness.reserva.numPassageiros}">
 							<f:selectItem itemValue="1" itemLabel="1 Passageiro" />
 							<f:selectItem itemValue="2" itemLabel="2 Passageiros" />
@@ -74,13 +74,14 @@
 				<div class="grid_3">
 					<div class="box cobranca">
 						<h5>Forma de pagamento</h5>
-						<h:selectOneMenu style="margin-top:-10px;"
-							value="#{reservaBusiness.reserva.formaPagamento}">
+						<h:selectOneRadio value="#{reservaBusiness.reserva.formaPagamento}"
+							styleClass="tipoPassagem">
 							<f:selectItem itemValue="avista" itemLabel="à vista" />
 							<f:selectItem itemValue="aprazo" itemLabel="a prazo" />
-						</h:selectOneMenu>
+						</h:selectOneRadio>
+						
 						<br/>
-						<h:selectOneMenu style="margin-top:10px;"
+						<h:selectOneMenu style="margin-top:-25px;"
 							value="#{reservaBusiness.reserva.numParcelas}">
 							<f:selectItem itemValue="" itemLabel="parcelas" />
 							<f:selectItem itemValue="1" itemLabel="1 parcela" />

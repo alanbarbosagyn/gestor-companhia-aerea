@@ -9,6 +9,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import sun.io.CharToByteASCII;
+
 import cliente.Cliente;
 
 import apoio.Conexao;
@@ -32,11 +34,11 @@ public class ReservaDAOImpl implements ReservaDAO {
 		Connection conn1 = null;
 		java.util.Date dataJava = new java.util.Date();
 		java.sql.Date dataReserva = new java.sql.Date(dataJava.getTime());
-		
+
 		SimpleDateFormat formatador = new SimpleDateFormat("HH:mm:ss");
 		java.util.Date data = new java.util.Date();
 		String horaReserva = formatador.format(data);
-		
+
 		if (reserva == null)
 			throw new ReservasDAOException("Nenhuma reserva foi informado!");
 		try {
@@ -45,9 +47,9 @@ public class ReservaDAOImpl implements ReservaDAO {
 					+ "cod_voovolta, num_aerptorigem, num_aerptdestino, cliente_email)"
 					+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
 			conn1 = this.conn;
-			/*if(reserva.getNumParcelas() <= 1){
-				reserva.setNumParcelas(1);
-			}*/
+			/*
+			 * if(reserva.getNumParcelas() <= 1){ reserva.setNumParcelas(1); }
+			 */
 			ps = conn1.prepareStatement(sql);
 			ps.setString(1, reserva.getCodigo());
 			ps.setString(2, reserva.getTipo());
@@ -209,6 +211,46 @@ public class ReservaDAOImpl implements ReservaDAO {
 		} finally {
 			Conexao.closeConnection(conn1, ps, rs);
 		}
+	}
+
+	@Override
+	public String geraCodigoReserva() throws ReservasDAOException {
+		PreparedStatement ps = null;
+		Connection conn1 = null;
+		ResultSet rs = null;
+		String codigo = null;
+		String cod = null;
+		//String i = null;
+		//String j = null;
+
+		try {
+
+			do {
+				
+				
+				//i = String.valueOf((int) Math.floor((Math.random() * (9))));
+				//j = String.valueOf((int) Math.floor((Math.random() * (99))));
+				
+				codigo = Integer.toHexString((int) Math.floor((Math.random() * (99999)))).toUpperCase();
+				
+				//System.out.println("########## " + codigo + "###########");
+
+				String sql = "SELECT * FROM reserva WHERE codigo = ?";
+				conn1 = this.conn;
+				ps = conn1.prepareStatement(sql);
+				ps.setString(1, codigo);
+				rs = ps.executeQuery();
+				cod = rs.getString("cod_reserva");
+			} while (cod != null || !cod.equalsIgnoreCase(codigo));
+
+		} catch (SQLException e) {
+			//System.out.println("########## " + "Execeção no DAO" + "###########");
+			return codigo;
+		} finally {
+			Conexao.closeConnection(conn1, ps);
+		}
+		return codigo;
+
 	}
 
 }

@@ -12,8 +12,85 @@
 		<ui:include src="/header.xhtml" />
 	</f:view>
 	<div class="container_12">
-		<h1>Editar reserva</h1>
+		<br />
 		<h:form>
+			<div class="voo">
+				<div class="grid_8 box2 cadRes">
+					<div class="box2interno">
+						<h5 class="tituloRes">Dados da passagem</h5>
+						<div class="grid_4 alpha omega">
+							<h:outputText
+								value="Valor total: #{reservaBusiness.escala.valor}" />
+							<br />
+							<h:outputText value="Data de embarque: " />
+							<br />
+							<h:outputText
+								value="Código do vôo: #{reservaBusiness.voo.codigo}" />
+							<br />
+							<h:outputText
+								value="Qtde de passageiros: #{reservaBusiness.reserva.numPassageiros}" />
+							<br />
+						</div>
+						<div class="grid_4 alpha omega">
+							<h:outputText value="Origem: #{reservaBusiness.aer.cidade}" />
+							<br />
+							<h:outputText
+								value="Hora de saída: #{reservaBusiness.escala.horaSaida}" />
+							<br />
+							<h:outputText value="Destino #{reservaBusiness.aer2.cidade}" />
+							<br />
+							<h:outputText
+								value="Hora de chegada: #{reservaBusiness.escala.horaChegada}" />
+							<br />
+						</div>
+					</div>
+				</div>
+
+				<div class="grid_4 cobranca box2">
+					<div class="box2interno">
+						<h5 class="tituloRes">Dados para cobrança</h5>
+						<h:outputText value="Nome: #{reservaBusiness.cliente.nome}" />
+						<br />
+						<h:outputText
+							value="Telefone: #{reservaBusiness.cliente.telefone}" />
+						<br />
+						<h:outputText
+							value="Cartão de crédito: #{reservaBusiness.cliente.nCartao}" />
+					</div>
+				</div>
+
+
+			</div>
+			<div class="grid_12 tituloRes2">
+				<h5>Edite os dados dos passageiros</h5>
+			</div>
+			<ui:repeat var="#{reservaBusiness.passageiros}" value="passageiro">
+				<div>
+					<div class="grid_3">
+						<div class="box boxCadPas">
+							<h5>Passageiro</h5>
+							<h:panelGrid columns="2">
+								<h:outputLabel value="Nome" />
+								<h:inputText value="#{passageiro.nome}" />
+							</h:panelGrid>
+							<h6>
+								<h:outputText value="Assentos" />
+							</h6>
+							<h:panelGrid columns="4">
+								<h:outputLabel value="ida" />
+								<h:inputText size="5" value="#{passageiro.assentoIda}" />
+								<h:outputLabel value="volta"/>
+								<h:inputText size="5" value="#{passageiro.assentoVolta}" />
+							</h:panelGrid>
+						</div>
+					</div>
+				</div>
+			</ui:repeat>
+			
+			<div class="grid_12 resCon">
+				<h:commandButton styleClass="botao-formulario acao"
+					action="#{reservaBusiness.cadastrarReserva}" value="Concluir reserva" />
+			</div>
 
 		</h:form>
 	</div>

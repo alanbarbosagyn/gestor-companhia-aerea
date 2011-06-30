@@ -20,6 +20,61 @@ public class Reserva {
 	private int codAerpVolta;
 	private String clienteEmail;
 	
+	private String companhia;
+	private Date dataVoo;
+	private String origem;
+	private String destino;
+	private String horaSaida;
+	private String horaChegada;
+	
+	public String getOrigem() {
+		return origem;
+	}
+
+	public void setOrigem(String origem) {
+		this.origem = origem;
+	}
+
+	public String getDestino() {
+		return destino;
+	}
+
+	public void setDestino(String destino) {
+		this.destino = destino;
+	}
+
+	public String getHoraSaida() {
+		return horaSaida;
+	}
+
+	public void setHoraSaida(String horaSaida) {
+		this.horaSaida = horaSaida;
+	}
+
+	public String getHoraChegada() {
+		return horaChegada;
+	}
+
+	public void setHoraChegada(String horaChegada) {
+		this.horaChegada = horaChegada;
+	}
+
+	public Date getDataVoo() {
+		return dataVoo;
+	}
+
+	public void setDataVoo(Date dataVoo) {
+		this.dataVoo = dataVoo;
+	}
+
+	public String getCompanhia() {
+		return companhia;
+	}
+
+	public void setCompanhia(String companhia) {
+		this.companhia = companhia;
+	}
+
 	public Reserva() {
 		
 	}

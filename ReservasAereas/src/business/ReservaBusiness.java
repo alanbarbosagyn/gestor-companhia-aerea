@@ -268,7 +268,7 @@ public class ReservaBusiness {
 	public String editarReserva() throws ReservasDAOException {
         getReservaManipulacao();
         setReserva(reserva);
-        return "editarReserva";
+        return "cadastroReserva";
     }
 
     public String excluirReserva() throws ReservasDAOException {

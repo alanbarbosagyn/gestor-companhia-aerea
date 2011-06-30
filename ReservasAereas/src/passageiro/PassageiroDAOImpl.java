@@ -237,7 +237,7 @@ public class PassageiroDAOImpl implements PassageiroDAO {
 	}
 
 	@Override
-	public void atualizarLista(ArrayList<Passageiro> passageiros) throws ReservasDAOException {
+	public void atualizarLista(ArrayList<Passageiro> passageiros, String codigo) throws ReservasDAOException {
 		PreparedStatement ps = null;
 		Connection conn1 = null;
 		if (passageiros == null) {
@@ -246,17 +246,15 @@ public class PassageiroDAOImpl implements PassageiroDAO {
 		try {
 			for (Passageiro passageiro : passageiros) {
 
-				String sql = "UPDATE passageiro SET cod_reserva=?, assentoida=?, "
-						+ "nome=? assentovolta=? "
+				String sql = "UPDATE passageiro SET "
+						+ "nome=?, assentovolta=? "
 						+ "WHERE cod_reserva=? AND assentoida=?";
 				conn1 = this.conn;
 				ps = conn1.prepareStatement(sql);
-				ps.setString(1, passageiro.getCodReserva());
-				ps.setString(2, passageiro.getAssentoIda());
-				ps.setString(3, passageiro.getNome());
-				ps.setString(4, passageiro.getAssentoVolta());
-				ps.setString(5, passageiro.getCodReserva());
-				ps.setString(6, passageiro.getAssentoIda());
+				ps.setString(3, codigo);
+				ps.setString(4, passageiro.getAssentoIda());
+				ps.setString(1, passageiro.getNome());
+				ps.setString(2, passageiro.getAssentoVolta());
 
 				ps.executeUpdate();
 			}

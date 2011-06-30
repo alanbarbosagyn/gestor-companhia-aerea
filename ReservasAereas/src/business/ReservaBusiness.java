@@ -282,12 +282,23 @@ public class ReservaBusiness {
 
 	public String editarReserva() throws ReservasDAOException {
 		getReservaManipulacao();
-		setReserva(reserva);
+		ReservaDAO interfaceReservaDao = new ReservaDAOImpl();
+		Reserva aux = new Reserva();
+		aux = interfaceReservaDao.procurar(reserva.getCodigo());
+		// aux.
+		// setReserva(reserva);
+		// this.reserva.setCompanhia(aux.getCompanhia())
 		PassageiroDAO interfaceDao = new PassageiroDAOImpl();
 		this.passageiros = (ArrayList<Passageiro>) interfaceDao
 				.listarPassDaReserva(this.cliente.getEmail(),
 						this.reserva.getCodigo());
-		return "cadastroReserva";
+		return "editaReserva";
+	}
+
+	public String atualizarReserva() throws ReservasDAOException {
+		PassageiroDAO interfaceDao = new PassageiroDAOImpl();
+		interfaceDao.atualizarLista(this.passageiros, this.reserva.getCodigo());
+		return "minhasReservas";
 	}
 
 	public String excluirReserva() throws ReservasDAOException {

@@ -17,6 +17,6 @@ public interface PassageiroDAO {
 	// Lista todos os passageiros da reserva pelo email do cliente
 	public List listarPassDaReserva(String email, String codReserva) throws ReservasDAOException;
 	public void gravarLista(ArrayList<Passageiro> passageiros) throws ReservasDAOException;
-	public void atualizarLista(ArrayList<Passageiro> passageiros) throws ReservasDAOException;
+	public void atualizarLista(ArrayList<Passageiro> passageiros, String codigo) throws ReservasDAOException;
 
 }
